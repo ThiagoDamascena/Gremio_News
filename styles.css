@@ -1,0 +1,47 @@
+.conteiner{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-areas:
+    "topo"
+    "main"
+    "rodape"
+    ;
+    
+}
+
+.top{
+    grid-area: topo;
+    background-color: rgb(0, 132, 255);
+    width: 100vw;
+    height: 20vh;
+}
+
+.rodape{
+    grid-area: rodape;
+    display: grid;
+    background-color: rgb(29, 29, 29);
+    width: 100vw;
+    height: 10vh;
+    color: white;
+    justify-items: center;
+    align-items: center;
+}
+
+.main{
+    display: grid;
+    grid-area: main;
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.caixa1{
+    background-color: rebeccapurple;
+    width: 30vw;
+    aspect-ratio: 1/1;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    border-radius: 1vw;
+}
