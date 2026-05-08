@@ -46,28 +46,34 @@
     background-color: rgb(128, 16, 219);
     grid-area: caixa1;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-areas:
+    "noticia1 noticia2 noticia3"
+    ;
+/*    grid-template-columns: 1fr; */
 }
 
 .noticia1, .noticia2, .noticia3{
     background-color: rgb(255, 255, 255);
-    height: 40vh;
+    height: clamp(250px, 40vh, 500px);
     border-radius: 1vw;
     margin-right: 1vw;
     margin-left: 1vw;
 }
 
 .noticia1{
+    grid-area: noticia1;
     margin-top: 1vw;
     overflow: hidden;
 }
 
 .noticia2{
+    grid-area: noticia2;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
 }
 
 .noticia3{
+    grid-area: noticia3;
     margin-bottom: 1vw;
 }
 
