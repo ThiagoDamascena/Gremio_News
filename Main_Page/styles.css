@@ -98,36 +98,45 @@
     border-radius: 10px;
 }
 
-.rodape{
-    grid-area: rodape;
-    display: grid;
-    background-color: rgb(29, 29, 29);
-    color: white;
-}
-
 .main{
     display: grid;
     grid-area: main;
-    grid-template-rows: 30vh auto;
+    grid-template-rows: 30vh auto auto;
     grid-template-areas:
-    "lastnews"
-    "caixa1"
+    "caixaLastnews"
+    "caixaNoticia"
+    "caixaResumo"
     ;
 }
 
-.lastnews{
-    background-color: rgb(111, 214, 97);
-    grid-area: lastnews;
+.caixaLastNews{
+    grid-area: caixaLastnews;
+    display: grid;
+    align-items: center;
+    width: 100%;
 }
 
-.caixa1{
+.lastNews{
     background-color: rgb(255, 255, 255);
-    grid-area: caixa1;
+    height: 25vh;
+    border-radius: 1vw;
+    border: solid 0.1rem rgb(135, 135, 135);
+    box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
+    width: 90% !important; 
+    justify-self: center;
+}
+
+.caixaNoticia{
+    background-color: rgb(255, 255, 255);
+    grid-area: caixaNoticia;
     display: grid;
     grid-template-areas:
     "noticia1 noticia2 noticia3"
     ;
-/*    grid-template-columns: 1fr; */
+    width: 90%;
+    justify-self: center;
+    align-items: center;
+    gap: 2rem;
 }
 
 .noticia1, .noticia2, .noticia3{
@@ -137,22 +146,44 @@
     border: solid 0.1rem rgb(135, 135, 135);
     margin-top: 1rem;
     margin-bottom: 1rem;
-    box-shadow: 0px 0px 15px rgba(86, 86, 86, 0.818);
+    box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
+    
 }
 
 .noticia1{
     grid-area: noticia1;
     overflow: hidden;
-    margin-left: 1rem;
 }
 
 .noticia2{
     grid-area: noticia2;
-    margin-left: 3rem;
-    margin-right: 3rem;
 }
 
 .noticia3{
     grid-area: noticia3;
-    margin-right: 1rem;
+}
+
+.caixaResumo{
+    grid-area: caixaResumo;
+    width: 100%;
+    height: clamp(250px, 40vh, 500px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewResumo{
+    background-color: rgb(255, 255, 255);
+    height: 35vh;
+    border-radius: 1vw;
+    border: solid 0.1rem rgb(135, 135, 135);
+    box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
+    width: 90%; 
+}
+
+.rodape{
+    grid-area: rodape;
+    display: grid;
+    background-color: rgb(29, 29, 29);
+    color: white;
 }
