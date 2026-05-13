@@ -7,7 +7,7 @@
 .conteiner{
     display: grid;  
     min-height: 100vh;
-    grid-template-rows: 20vh auto 30vh;
+    grid-template-rows: auto auto 30vh;
     grid-template-areas:
     "topo"
     "main"
@@ -46,7 +46,7 @@
 
 .campoIndice{
     grid-area: campoindice;
-    height: 20vh;
+    height: 5vh;
     width: 100%;
 
     display: grid;
@@ -57,22 +57,45 @@
 
 .botao1, .botao2, .botao3{
     background-color: rgb(153, 153, 153);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.estiloBotao{
+    border-radius: 5px;
+    color: blue;
+    border: 0px;
 }
 
 .botao1{
     grid-area: botao1;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .botao2{
     grid-area: botao2;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .botao3{
     grid-area: botao3;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .pesquisa{
     grid-area: pesquisa;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.pesquisa input{
+    border: 0px;
+    border-radius: 10px;
 }
 
 .rodape{
