@@ -2,12 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body{
+    font-family: Arial, sans-serif;
 }
 
 .conteiner{
     display: grid;  
     min-height: 100vh;
-    grid-template-rows: auto auto 30vh;
+    grid-template-rows: 20vh auto 30vh;
     grid-template-areas:
     "topo"
     "main"
@@ -16,87 +21,49 @@
 }
 
 .top{
-    grid-area: topo;
-    background-color: rgb(0, 132, 255);
+    display:grid;
+}
+
+.caixaTopo{
+    width: 80%;
+    height: 100%;
+    background-color: rgba(80, 120, 185, 0.820);
+    justify-self: center;
+    grid-template-columns: 1fr 1fr;
     display: grid;
-    grid-template-areas:
-    "titulo"
-    "campoindice"
-    ;
 }
 
-.tituloIndice{
-    grid-area: titulo;
-    background-color: rgb(255, 255, 255);
-    display: grid;
-    grid-template-areas:
-    "eva settings"
-    ;
-    grid-template-columns: auto 50px;
+.caixaLogo{
+    width: auto;
+    background-color: tomato;
 }
 
-.eva{
-    grid-area: eva;
-}
-
-.settings{
-    grid-area: settings;
+.caixaPesquisa{
+    display:grid;
+    width: auto;
     background-color: sandybrown;
+    justify-content: end;
+    align-items:center;
+    grid-area:
+    "barraPesquisa"
+    "redirecionamento"
+    ;
 }
 
-.campoIndice{
-    grid-area: campoindice;
-    height: 5vh;
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-    "botao1 botao2 botao3 pesquisa";
-}
-
-.botao1, .botao2, .botao3{
-    background-color: rgb(153, 153, 153);
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.estiloBotao{
+.barraPesquisa{
     border-radius: 5px;
-    color: blue;
-    border: 0px;
+    height: clamp(20px, 2.5vh, 2.6vh);
+    width: 10vw;
 }
 
-.botao1{
-    grid-area: botao1;
-    display: grid;
-    grid-template-columns: 1fr;
+.redirecionamento{
+    background-image: url("Pictures/instagram.jpg");
+    height: 80px;
+    width: 80px;
+    background-size: cover;
 }
 
-.botao2{
-    grid-area: botao2;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.botao3{
-    grid-area: botao3;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.pesquisa{
-    grid-area: pesquisa;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-}
-
-.pesquisa input{
-    border: 0px;
-    border-radius: 10px;
-}
+/* Caixa Principal */
 
 .main{
     display: grid;
@@ -143,6 +110,7 @@
     justify-self: center;
     align-items: center;
     gap: 2rem;
+    overflow: visible;
 }
 
 @media (max-width: 550px) {
@@ -201,4 +169,23 @@
     display: grid;
     background-color: rgb(29, 29, 29);
     color: white;
+}
+
+
+#carouselExampleRide{
+    position: relative;
+    overflow: visible;
+}
+
+.carousel-control-prev {
+    left: 1vw!important;
+}
+
+.carousel-control-next {
+    right: 1vw!important;
+}
+#carouselExampleRide .carousel-control-prev,
+#carouselExampleRide .carousel-control-next {
+    width: auto;
+    padding: 0;
 }
