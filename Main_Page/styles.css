@@ -43,7 +43,8 @@ body{
     width: auto;
     background-color: sandybrown;
     justify-content: end;
-    align-items:center;
+    align-items: center;
+    grid-template-rows: auto auto;
     grid-area:
     "barraPesquisa"
     "redirecionamento"
@@ -53,14 +54,21 @@ body{
 .barraPesquisa{
     border-radius: 5px;
     height: clamp(20px, 2.5vh, 2.6vh);
-    width: 10vw;
+    width: clamp(100px, 20vw, 300px);
+    padding: 10px;
 }
 
 .redirecionamento{
-    background-image: url("Pictures/instagram.jpg");
-    height: 80px;
-    width: 80px;
+    display: block;
+    height: 40px;
+    width: 40px;
     background-size: cover;
+    justify-self: end;
+    margin-right: 10px;
+}
+
+img.redirecionamento{
+    margin-right: 0;
 }
 
 /* Caixa Principal */
