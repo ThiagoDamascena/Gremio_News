@@ -39,12 +39,28 @@ body{
 }
 
 .caixaPesquisa{
+    display:grid;
     width: auto;
     background-color: sandybrown;
+    justify-content: end;
+    align-items:center;
+    grid-area:
+    "barraPesquisa"
+    "redirecionamento"
+    ;
 }
 
 .barraPesquisa{
     border-radius: 5px;
+    height: clamp(20px, 2.5vh, 2.6vh);
+    width: 10vw;
+}
+
+.redirecionamento{
+    background-image: url("Pictures/instagram.jpg");
+    height: 80px;
+    width: 80px;
+    background-size: cover;
 }
 
 /* Caixa Principal */
