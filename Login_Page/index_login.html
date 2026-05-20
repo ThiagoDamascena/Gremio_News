@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="styles_login.css">
+    <script src="functions_login.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="caixa">
+
+                    <div class="form-box active" id="login-form">
+                                 
+                        <form>        
+                        
+                        <h3 class="tituloh3">BEM VINDO AO</h3>
+                        <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
+                        <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
+
+                        <h3 class="titulologin_cima">Entre</h3>     
+                            
+                        <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>                                
+
+                        <div class="input-box">
+                            <input placeholder="Matrícula" type="text" name="matricula" required>
+                            <i class="bx bxs-user"></i>
+                        </div>
+                                                                
+                        <div class="input-box">
+                            </label>
+                            <input placeholder="Senha" type="password" name="password" required>
+                            <i class="bx bxs-lock-alt"></i>
+                        </div>
+                        
+                        <div class="remember-forgot">
+                            <label>
+                                <input type="checkbox">
+                                Lembrar minha senha
+                            </label>
+                            <a href="">Esqueci minha senha</a>
+                        </div>
+                            
+                        <button type="submit" class="botao" name="login"><strong>Entrar</strong></button>
+
+                        <p class="register">Não tem uma conta? <a href="#" onclick="showForm('register-form')">Cadastre-se</a></p>
+                    
+                    </form>
+
+                    </div>
+                
+                    <div class="form-box" id="register-form">
+                    
+                        <form>                                                                  
+                            
+                            <h3 class="tituloh3">BEM VINDO AO</h3>
+                            <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
+                            <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
+
+                            <h3 class="titulologin_cima">Cadastre-se</h3>    
+
+                            <h3 class="titulologin_meio">Insira suas informações nos campos abaixo:</h3>  
+
+                            <div class="input-box">
+                                <input placeholder="Foto" type="file" name="foto" accept="image/*"> 
+                                <i class="bx bxs-user"></i>
+                            </div>    
+                            <div class="input-box">
+                                <input placeholder="Nome" type="text" name="name" required>
+                                <i class="bx bxs-user"></i>
+                            </div>    
+
+                            <div class="input-box">
+                                <input placeholder="Email" type="email" name="email" required>
+                                <i class="bx bxs-user"></i>
+                            </div>
+
+                            <div class="input-box">
+                                <input placeholder="Matrícula" type="text" name="matricula" required>
+                                <i class="bx bxs-user"></i>
+                            </div>
+                                                                
+                            <div class="input-box">
+                                </label>
+                                <input placeholder="Senha" type="password" name="password" required>
+                                <i class="bx bxs-lock-alt"></i>
+                            </div>
+
+                             <!-- Define que o usuário criado tem o cargo "user" -->
+                            <input type="hidden" name="role" value="user">
+                            
+                            <button type="submit" class="botao" name="register"><strong>Cadastrar-se</strong></button>
+
+                            <p class="register">Já tem uma conta? <a href="#" onclick="showForm('login-form')">Entre</a></p>
+                        
+                        </form>
+                    </div>
+
+        </div>
+    </div>
+</body>
+</html>
