@@ -43,6 +43,10 @@ body{
     background-color: sandybrown;
 }
 
+.barraPesquisa{
+    border-radius: 5px;
+}
+
 /* Caixa Principal */
 
 .main{
