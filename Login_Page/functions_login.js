@@ -22,7 +22,7 @@ form.addEventListener("submit", async (event) => {
 
     const data = {
 
-        nome: document
+        name: document
         .getElementById("name")
         .value,
 
