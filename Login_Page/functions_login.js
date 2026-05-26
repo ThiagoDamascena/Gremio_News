@@ -12,6 +12,55 @@ function showForm(id){
     .add("active")
 }
 
+const registerForm = document.querySelector("#register-form form")
+
+registerForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault()
+
+    const data = {
+
+        nome: document
+        .getElementById("nome")
+        .value,
+
+        email: document
+        .getElementById("email")
+        .value,
+
+        matricula: document
+        .getElementById("matricula")
+        .value,
+
+        senha: document
+        .getElementById("senha")
+        .value
+    }
+
+    console.log(data)
+
+    const response = await fetch(
+        "http://localhost:5000/register",
+
+        {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(data)
+        }
+    )
+
+    const result = await response.json()
+
+    console.log(result)
+
+    alert(result.mensagem || result.erro)
+})
+
 const form = document.querySelector("#register-form form")
 
 form.addEventListener("submit", async (event) => {
@@ -42,7 +91,7 @@ form.addEventListener("submit", async (event) => {
     try{
 
         const response = await fetch(
-            "http://localhost:3000/register",
+            "http://localhost:5000/register",
 
             {
                 method: "POST",
