@@ -113,3 +113,10 @@ form.addEventListener("submit", async (event) => {
         console.log(error)
     }
 })
+
+Swal.fire({
+  title: 'Cadastro realizado!',
+  text: 'A pessoa foi cadastrada com sucesso.',
+  icon: 'success',
+  confirmButtonText: 'OK'
+});

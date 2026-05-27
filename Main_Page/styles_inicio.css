@@ -33,14 +33,20 @@ body{
     display: grid;
 }
 
+.btn-outline-success{
+    text-align: start;
+}
+
 .caixaLogo{
     width: auto;
     background-color: tomato;
+    min-height: 80px;
 }
 
 .caixaPesquisa{
     display:grid;
     width: auto;
+    min-height: 80px;
     background-color: sandybrown;
     justify-content: end;
     align-items: center;
@@ -53,7 +59,7 @@ body{
 
 .barraPesquisa{
     border-radius: 5px;
-    height: clamp(20px, 2.5vh, 2.6vh);
+    height: clamp(20px, 3vh, 4.5vh);
     width: clamp(100px, 20vw, 300px);
     padding: 10px;
     margin-right: 10px;
