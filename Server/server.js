@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 app.post("/register", (req, res) => {
 
     const {
-        name,
+        nome,
         matricula,
         email,
         senha
@@ -23,13 +23,13 @@ app.post("/register", (req, res) => {
 
     const sql = `
         INSERT INTO aluno
-        (name, matricula, email, senha)
+        (nome, matricula, email, senha)
         VALUES (?, ?, ?, ?)
     `
 
     db.query(
         sql,
-        [name, matricula, email, senha],
+        [nome, matricula, email, senha],
 
         (err, result) => {
 
@@ -50,6 +50,6 @@ app.post("/register", (req, res) => {
     )
 })
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("Servidor rodando")
 })
