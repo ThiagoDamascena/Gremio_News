@@ -25,29 +25,38 @@ body{
 }
 
 .caixaTopo{
-    width: 80%;
+    width: 70%;
     height: 100%;
-    background-color: rgba(80, 120, 185, 0.820);
     justify-self: center;
     grid-template-columns: 1fr 1fr;
     display: grid;
 }
 
-.btn-outline-success{
-    text-align: start;
+.caixaLogo{
+    min-height: 80px;
+    display: grid;
+    grid-template-columns: 40% 60%;
 }
 
-.caixaLogo{
+.logo{
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+    background-size: cover;
+    background-position: center;
+    overflow: visible;
+}
+
+.textoLogo{
+    font-size: clamp(1vw, 2vw, 3vw);
+    grid-column: 2;
     width: auto;
-    background-color: tomato;
-    min-height: 80px;
 }
 
 .caixaPesquisa{
     display:grid;
     width: auto;
     min-height: 80px;
-    background-color: sandybrown;
     justify-content: end;
     align-items: center;
     grid-template-rows: auto auto;
@@ -63,6 +72,18 @@ body{
     width: clamp(100px, 20vw, 300px);
     padding: 10px;
     margin-right: 10px;
+}
+
+.btn-outline-success{
+    text-align: center;
+    padding: 0;
+    min-width: 70px;
+    background-color: white;
+    color: green;
+}
+
+.bg-body-tertiary{
+    background-color: transparent!important;
 }
 
 .redirecionamento{
@@ -150,7 +171,32 @@ img.redirecionamento{
 
 .noticia1{
     grid-area: noticia1;
-    overflow: hidden;
+}
+
+.fotoNoticia{
+    width: 100%;
+    height: clamp(150px, 25vh, 400px);
+    background-size: contain;
+    border-radius: 0 0 10px 10px;
+}
+
+.tituloNoticia1{
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #15652f;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0 1rem;
+}
+
+.conteudoNoticia1{
+    font-size: 1rem;
+    color: #333;
+    width: 100%;
+    text-align: center;
+    padding: 0 1.2rem 1rem;
+    line-height: 1.5;
 }
 
 .noticia2{

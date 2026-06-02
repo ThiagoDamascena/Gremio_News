@@ -1,0 +1,179 @@
+**{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f1f5f9;
+}
+
+/* MENU */
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:#0f172a;
+    color:white;
+    padding:20px;
+    position:fixed;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:14px;
+    border-radius:8px;
+    margin-bottom:10px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar li:hover{
+    background:#1e293b;
+}
+
+/* CONTEÚDO */
+.main{
+    margin-left:260px;
+    flex:1;
+    padding:25px;
+}
+
+.header{
+    background:rgb(5, 2, 39);
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(246, 246, 247, 0.904);
+}
+
+.header h1{
+    color:rgb(250, 249, 252);
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#64748b;
+}
+
+/* BOTÕES */
+.actions{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.btn{
+    border:none;
+    padding:14px 20px;
+    border-radius:8px;
+    color:rgb(6, 0, 90);
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-news{
+    background:#2563eb;
+}
+
+.btn-summary{
+    background:#16a34a;
+}
+
+.btn-event{
+    background:#f59e0b;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:32px;
+    font-weight:bold;
+    color:#0f172a;
+}
+
+/* SEÇÕES */
+.section{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.section h2{
+    margin-bottom:15px;
+    color:#0f172a;
+}
+
+.item{
+    padding:15px 0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.item:last-child{
+    border:none;
+}
+
+.item-title{
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.item-info{
+    color:#64748b;
+    font-size:14px;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        margin-left:0;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+}
