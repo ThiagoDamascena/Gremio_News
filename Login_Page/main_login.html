@@ -6,9 +6,9 @@
     <title>Document</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="stylesheet" href="styles_login.css">
-    <script src="functions_login.js"></script>
+    <script src="./index_login.js" defer></script>
 </head>
-<body>
+<body> 
     <div class="main">
         <div class="caixa">
 
@@ -22,7 +22,7 @@
 
                         <h3 class="titulologin_cima">Entre</h3>     
                             
-                        <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>                                
+                        <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>  
 
                         <div class="input-box">
                             <input placeholder="Matrícula" type="text" name="matricula" required>
@@ -31,7 +31,7 @@
                                                                 
                         <div class="input-box">
                             </label>
-                            <input placeholder="Senha" type="password" name="password" required>
+                            <input placeholder="Senha" type="password" name="senha" required>
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                         
@@ -68,28 +68,25 @@
                                 <i class="bx bxs-user"></i>
                             </div>    
                             <div class="input-box">
-                                <input placeholder="Nome" type="text" name="name" required>
+                                <input id="nome" placeholder="Nome" type="text" name="nome" required>
                                 <i class="bx bxs-user"></i>
                             </div>    
 
                             <div class="input-box">
-                                <input placeholder="Email" type="email" name="email" required>
+                                <input id="email" placeholder="Email" type="email" name="email" required>
                                 <i class="bx bxs-user"></i>
                             </div>
 
                             <div class="input-box">
-                                <input placeholder="Matrícula" type="text" name="matricula" required>
+                                <input id="matricula" placeholder="Matrícula" type="text" name="matricula" required>
                                 <i class="bx bxs-user"></i>
                             </div>
                                                                 
                             <div class="input-box">
                                 </label>
-                                <input placeholder="Senha" type="password" name="password" required>
+                                <input id="senha" placeholder="Senha" type="password" name="senha" required>
                                 <i class="bx bxs-lock-alt"></i>
                             </div>
-
-                            <!-- Define que o usuário criado tem o cargo "user" -->
-                            <input type="hidden" name="role" value="user">
                             
                             <button type="submit" class="botao" name="register"><strong>Cadastrar-se</strong></button>
 

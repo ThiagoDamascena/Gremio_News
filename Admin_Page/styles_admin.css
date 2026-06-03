@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.conteiner{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-areas:
+  "sidebar main"
+  ;
+  grid-template-columns: 20% auto;
+}
+    
+.sidebar{
+  background-color: aqua;
+  grid-area: sidebar;
+  height: 100vh;
+}
+
+.main{
+  background-color: brown;
+  grid-area: main;
+  height: 100vh;
+}
