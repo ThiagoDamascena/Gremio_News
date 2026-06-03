@@ -173,14 +173,14 @@ img.redirecionamento{
     grid-area: noticia1;
 }
 
-.fotoNoticia{
+.fotoNoticia1, .fotoNoticia2, .fotoNoticia3{
     width: 100%;
     height: clamp(150px, 25vh, 400px);
     background-size: contain;
     border-radius: 0 0 10px 10px;
 }
 
-.tituloNoticia1{
+.tituloNoticia1, .tituloNoticia2, .tituloNoticia3{
     font-size: 1.6rem;
     font-weight: 700;
     color: #15652f;
@@ -190,7 +190,7 @@ img.redirecionamento{
     padding: 0 1rem;
 }
 
-.conteudoNoticia1{
+.conteudoNoticia1, .conteudoNoticia2, .conteudoNoticia3{
     font-size: 1rem;
     color: #333;
     width: 100%;
