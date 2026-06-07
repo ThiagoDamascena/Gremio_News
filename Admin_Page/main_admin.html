@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles_admin.css">>
+  <link rel="stylesheet" href="styles_admin.css">
+  <script src="index_admin.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.js" defer></script>
   <title>Painel do Grêmio Estudantil</title>
 </head>
 
@@ -41,7 +44,7 @@
     <!-- BOTÕES -->
     <div class="actions">
 
-      <button class="btn btn-news">
+      <button onclick="abrirPopupNoticia()" class="btn btn-news">
         &#128240; Publicar Notícia
       </button>
 
@@ -53,6 +56,29 @@
         &#128197; Adicionar Evento
       </button>
 
+    </div>
+
+    <!-- POPUP NOTÍCIA -->
+    <div id="popupNoticia" class="popupNoticia">
+      <div class="conteudoPopupNoticia">
+
+        <form id="formNoticia" class="formPopupNoticia">
+
+          <h2>Adicionar Nova Notícia</h2>
+          <input type="file" id="imagem" accept="image/*" hidden>
+          <label for="imagem" class="btnImagem">Selecionar Imagem</label>
+          <img id="preview" src="" alt="Prévia da imagem">
+          <label class="tituloLabel"><input type="text" placeholder="Título"></label>
+          <label class="descricaoLabel"><textarea placeholder="Descrição"></textarea></label>
+
+        </form>
+
+        <div class="popupBotoes">
+          <button onclick="publicarNoticia()" class="estiloBotao">Publicar</button>
+          <button onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
+        </div>
+
+      </div>
     </div>
 
     <!-- ESTATÍSTICAS -->
