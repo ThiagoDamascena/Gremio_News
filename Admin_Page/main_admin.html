@@ -65,17 +65,23 @@
         <form id="formNoticia" class="formPopupNoticia">
 
           <h2>Adicionar Nova Notícia</h2>
-          <input type="file" id="imagem" accept="image/*" hidden>
+          <input type="file" id="imagem" accept="image/*" hidden onclick="cortarImagem()">
           <label for="imagem" class="btnImagem">Selecionar Imagem</label>
           <img id="preview" src="" alt="Prévia da imagem">
+
+          <button type="button" onclick="confirmarCorte()" class="btnImagem2" id="btnConfirmarCorte">
+              Confirmar Corte
+          </button>
+          <img id="resultado">
+
           <label class="tituloLabel"><input type="text" placeholder="Título"></label>
           <label class="descricaoLabel"><textarea placeholder="Descrição"></textarea></label>
 
         </form>
 
         <div class="popupBotoes">
-          <button onclick="publicarNoticia()" class="estiloBotao">Publicar</button>
-          <button onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
+          <button type="submit" onclick="publicarNoticia()" class="estiloBotao">Publicar</button>
+          <button type="button" onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
         </div>
 
       </div>

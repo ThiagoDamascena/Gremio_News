@@ -212,8 +212,11 @@ a:visited {
 .conteudoPopupNoticia {
   background: rgb(15, 25, 45);
 
-  width: 70%;
+  width: 60%;
   aspect-ratio: 1/1;
+
+  max-width: 90vw;
+  max-height: 90vh;
 
   padding: 20px;
   border-radius: 10px;
@@ -225,6 +228,8 @@ a:visited {
   color: white;
 
   text-align: center;
+
+      overflow-y: auto;
 }
 
 .formPopupNoticia {
@@ -249,6 +254,26 @@ a:visited {
 
 .btnImagem:hover {
   opacity: .9;
+}
+
+.btnImagem2 {
+  background: #ffffff;
+  color: rgb(15, 25, 45);
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnImagem2:hover {
+  opacity: .9;
+}
+
+#btnConfirmarCorte {
+    display: none;
 }
 
 #preview {
