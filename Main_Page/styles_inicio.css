@@ -61,6 +61,7 @@ body{
     align-items: center;
     grid-template-rows: auto auto;
     grid-area:
+    "settings"
     "barraPesquisa"
     "redirecionamento"
     ;
@@ -87,6 +88,16 @@ body{
 }
 
 .redirecionamento{
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    justify-self: end;
+    margin-right: 10px;
+    grid-area: settings;
+}
+
+.settings {
     display: block;
     height: 50px;
     width: 50px;
