@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login Grêmio News</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
     <link rel="stylesheet" href="styles_login.css">
     <script src="./index_login.js" defer></script>
@@ -14,7 +15,7 @@
 
                     <div class="form-box active" id="login-form">
                                 
-                        <form>        
+                        <form id="aluno-form-element">        
                         
                         <h3 class="tituloh3">BEM VINDO AO</h3>
                         <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
@@ -25,13 +26,13 @@
                         <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>  
 
                         <div class="input-box">
-                            <input placeholder="Matrícula" type="text" name="matricula" required>
+                            <input placeholder="Matrícula" type="text" name="aluno-matricula" id="aluno-matricula" required>
                             <i class="bx bxs-user"></i>
                         </div>
                                                                 
                         <div class="input-box">
                             </label>
-                            <input placeholder="Senha" type="password" name="senha" required>
+                            <input placeholder="Senha" type="password" name="aluno-senha" id="aluno-senha" required>
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                         
@@ -43,9 +44,11 @@
                             <a href="">Esqueci minha senha</a>
                         </div>
                             
-                        <button type="submit" class="botao" name="login"><strong>Entrar</strong></button>
+                        <button type="submit" class="botao" name="aluno-login"><strong>Entrar</strong></button>
 
                         <p class="register">Não tem uma conta? <a href="#" onclick="showForm('register-form')">Cadastre-se</a></p>
+
+                        <p class="register"><a href="#" onclick="showForm('admin-form')">Entrar como Administrador</a></p>
                     
                     </form>
 
@@ -68,23 +71,23 @@
                                 <i class="bx bxs-user"></i>
                             </div>    
                             <div class="input-box">
-                                <input id="nome" placeholder="Nome" type="text" name="nome" required>
+                                <input id="aluno-nome" placeholder="Nome" type="text" name="aluno-nome" required>
                                 <i class="bx bxs-user"></i>
                             </div>    
 
                             <div class="input-box">
-                                <input id="email" placeholder="Email" type="email" name="email" required>
+                                <input id="aluno-email" placeholder="Email" type="email" name="aluno-email" required>
                                 <i class="bx bxs-user"></i>
                             </div>
 
                             <div class="input-box">
-                                <input id="matricula" placeholder="Matrícula" type="text" name="matricula" required>
+                                <input id="aluno-matricula" placeholder="Matrícula" type="text" name="aluno-matricula" required>
                                 <i class="bx bxs-user"></i>
                             </div>
                                                                 
                             <div class="input-box">
                                 </label>
-                                <input id="senha" placeholder="Senha" type="password" name="senha" required>
+                                <input id="aluno-senha" placeholder="Senha" type="password" name="aluno-senha" required>
                                 <i class="bx bxs-lock-alt"></i>
                             </div>
                             
@@ -94,6 +97,45 @@
                         
                         </form>
                     </div>
+
+                 <div class="form-box" id="admin-form">
+                                
+                        <form id="admin-form-element">        
+                        
+                        <h3 class="tituloh3">BEM VINDO AO</h3>
+                        <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
+                        <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
+
+                        <h3 class="titulologin_cima">Entrar como Administrador</h3>     
+                            
+                        <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>  
+
+                        <div class="input-box">
+                            <input placeholder="Matrícula" type="text" name="admin-matricula" id="admin-matricula" required>
+                            <i class="bx bxs-user"></i>
+                        </div>
+                                                                
+                        <div class="input-box">
+                            </label>
+                            <input placeholder="Senha" type="password" name="admin-senha" id="admin-senha" required>
+                            <i class="bx bxs-lock-alt"></i>
+                        </div>
+                        
+                        <div class="remember-forgot">
+                            <label>
+                                <input type="checkbox">
+                                Lembrar minha senha
+                            </label>
+                            <a href="">Esqueci minha senha</a>
+                        </div>
+                            
+                        <button type="submit" class="botao" name="admin-login"><strong>Entrar</strong></button>
+
+                        <p class="register"><a href="#" onclick="showForm('login-form')">Entrar como Aluno</a></p>
+                    
+                    </form>
+
+                    </div>   
 
         </div>
     </div>

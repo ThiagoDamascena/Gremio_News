@@ -95,10 +95,6 @@ body {
   background: rgb(15, 25, 45);
 }
 
-.btn-event {
-  background: rgb(15, 25, 45);
-}
-
 /* CARDS */
 .cards {
   display: grid;
@@ -339,4 +335,10 @@ a:visited {
   border-radius: 9px;
   border: none;
   cursor: pointer;
+}
+
+.btnLogout {
+  background: none;
+  border: none;
+  color: white;
 }

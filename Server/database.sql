@@ -49,6 +49,9 @@ CREATE TABLE noticias (
     REFERENCES administrador(id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+ALTER TABLE noticias
+ADD imagem VARCHAR(255);
+
 -- Tabela banco_de_resumos (escritos por alunos)
 
 CREATE TABLE banco_de_resumos (

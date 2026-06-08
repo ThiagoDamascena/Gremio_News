@@ -1,3 +1,5 @@
+// FUNÇÃO TROCA DE FORMA (LOGIN/REGISTRO/LOGIN-ADMIN)
+
 function showForm(id){
 
     const forms = document.querySelectorAll(".form-box")
@@ -12,6 +14,8 @@ function showForm(id){
     .add("active")
 }
 
+// REGISTRAR CONTA DO ALUNO
+
 const registerForm = document.querySelector("#register-form form")
 
 registerForm.addEventListener("submit", async (e) => {
@@ -21,19 +25,19 @@ registerForm.addEventListener("submit", async (e) => {
     const data = {
 
         nome: document
-        .getElementById("nome")
+        .getElementById("aluno-nome")
         .value,
 
         email: document
-        .getElementById("email")
+        .getElementById("aluno-email")
         .value,
 
         matricula: document
-        .getElementById("matricula")
+        .getElementById("aluno-matricula")
         .value,
 
         senha: document
-        .getElementById("senha")
+        .getElementById("aluno-senha")
         .value
     }
 
@@ -61,62 +65,92 @@ registerForm.addEventListener("submit", async (e) => {
     alert(result.mensagem || result.erro)
 })
 
-const form = document.querySelector("#register-form form")
+// LOGIN ADMIN
 
-form.addEventListener("submit", async (event) => {
+document.getElementById("admin-form-element").addEventListener("submit", async e => {
 
-    event.preventDefault()
+    e.preventDefault()
 
-    const inputs = form.querySelectorAll("input")
+    const matricula =
+        document.getElementById("admin-matricula").value
 
-    const data = {
+    const senha =
+        document.getElementById("admin-senha").value
 
-        name: document
-        .getElementById("name")
-        .value,
+    const resposta = await fetch(
+        "http://localhost:5000/admin-login",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                matricula,
+                senha
+            })
+        }
+    )
 
-        email: document
-        .getElementById("email")
-        .value,
+    const resultado = await resposta.json()
+    
 
-        matricula: document
-        .getElementById("matricula")
-        .value,
+    if(resposta.ok){
 
-        senha: document
-        .getElementById("senha")
-        .value
-    }
-
-    try{
-
-        const response = await fetch(
-            "http://localhost:5000/register",
-
-            {
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify(data)
-            }
+        localStorage.setItem(
+            "admin",
+            JSON.stringify(resultado.admin)
         )
 
-        const result = await response.json()
+        window.location.href =
+            "../Admin_Page/main_admin.html"
+    }
+    else{
 
-        alert(result.mensagem)
-
-    }catch(error){
-
-        console.log(error)
+        alert(resultado.erro)
     }
 })
 
-Swal.fire({
-  title: 'Cadastro realizado!',
-  text: 'A pessoa foi cadastrada com sucesso.',
-  icon: 'success',
-  confirmButtonText: 'OK'
-});
+// LOGIN ALUNO
+
+document.getElementById("aluno-form-element").addEventListener("submit", async e => {
+
+    e.preventDefault()
+
+    const matricula =
+        document.getElementById("aluno-matricula").value
+
+    const senha =
+        document.getElementById("aluno-senha").value
+
+    const resposta = await fetch(
+        "http://localhost:5000/login-form",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                matricula,
+                senha
+            })
+        }
+    )
+
+    const resultado = await resposta.json()
+    
+
+    if(resposta.ok){
+
+        localStorage.setItem(
+            "aluno",
+            JSON.stringify(resultado.aluno)
+        )
+
+        window.location.href =
+            "../Main_Page/main_inicio.html"
+    }
+    else{
+
+        alert(resultado.erro)
+    }
+})
