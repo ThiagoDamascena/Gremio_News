@@ -1,3 +1,6 @@
+const multer = require("multer")
+const path = require("path")
+
 const express = require("express")
 const cors = require("cors")
 
@@ -7,6 +10,38 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+const storage = multer.diskStorage({
+
+    destination: (req, file, cb) => {
+
+        cb(
+        null,
+        path.join(__dirname, "uploads")
+    )
+    },
+
+    filename: (req, file, cb) => {
+
+        const nome =
+            Date.now() +
+            path.extname(file.originalname)
+
+        cb(null, nome)
+    }
+
+})
+
+const upload = multer({
+    storage
+})
+
+app.use(
+    "/uploads",
+    express.static(
+        path.join(__dirname, "uploads")
+    )
+)
 
 app.get("/", (req, res) => {
     res.send("Servidor funcionando")
@@ -150,6 +185,83 @@ app.post("/login-form", (req, res) => {
 
     });
 });
+
+app.post(
+    "/noticias",
+    upload.single("imagem"),
+    (req, res) => {
+
+        const {
+            titulo,
+            conteudo,
+            admin_id
+        } = req.body
+
+        const imagem =
+            req.file
+            ? req.file.filename
+            : null
+
+        const sql = `
+            INSERT INTO noticias
+            (
+                titulo,
+                conteudo,
+                imagem,
+                admin_id
+            )
+            VALUES (?, ?, ?, ?)
+        `
+
+        db.query(
+            sql,
+            [
+                titulo,
+                conteudo,
+                imagem,
+                admin_id
+            ],
+            (err, result) => {
+
+                if(err){
+
+                    console.log(err)
+
+                    return res.status(500).json({
+                        erro: "Erro ao publicar notícia"
+                    })
+                }
+
+                res.json({
+                    mensagem: "Notícia publicada"
+                })
+            }
+        )
+    }
+)
+
+
+
+app.get("/noticias", (req, res) => {
+
+    const sql = `
+        SELECT *
+        FROM noticias
+        ORDER BY data_publicacao DESC
+        LIMIT 3
+    `
+
+    db.query(sql, (err, result) => {
+
+        if(err){
+            return res.status(500).json({
+                erro: "Erro ao buscar notícias"
+            })
+        }
+
+        res.json(result)
+    })
+})
 
 app.listen(5000, () => {
     console.log("Servidor rodando")

@@ -1,16 +1,22 @@
-* {
+/* Remove margens e espaçamentos padrões dos elementos,
+   além de definir box-sizing para facilitar o controle de tamanhos */
+* { 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', sans-serif; 
 }
+
 
 body {
   display: flex;
   background: rgba(19, 36, 71, 0.7);
 }
 
-/* MENU */
+
+/*          MENU           */
+
+/* Cria uma barra lateral */
 .sidebar {
   width: 260px;
   height: 100vh;
@@ -20,15 +26,20 @@ body {
   position: fixed;
 }
 
+
+/* Centraliza o título do menu */
 .sidebar h2 {
   text-align: center;
   margin-bottom: 30px;
 }
 
+/* Remove os marcadores da lista */
 .sidebar ul {
   list-style: none;
 }
 
+
+/* Estiliza cada item do menu */
 .sidebar li {
   padding: 14px;
   border-radius: 8px;
@@ -37,17 +48,24 @@ body {
   transition: .3s;
 }
 
+/* Efeito ao passar o mouse*/
 .sidebar li:hover {
   background: #1e293b;
 }
 
-/* CONTEÚDO */
+
+/*   CONTEÚDO    */
+
+
+/* Espaço reservado para não ficar atrás da sidebar */
 .main {
   margin-left: 260px;
   flex: 1;
   padding: 25px;
 
 }
+
+/* Cabeçalho*/
 
 .header {
   padding: 25px;
@@ -65,7 +83,9 @@ body {
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* BOTÕES */
+/*   Botões de Ações   */
+
+/* Organiza os botões em linha */
 .actions {
   display: flex;
   gap: 15px;
@@ -73,6 +93,7 @@ body {
   margin-bottom: 25px;
 }
 
+/* Estilo dos botões*/
 .btn {
   border: none;
   padding: 14px 20px;
@@ -83,10 +104,12 @@ body {
   transition: .3s;
 }
 
+/* Efeito ao passar o mouse*/
 .btn:hover {
   transform: translateY(-2px);
 }
 
+ /* Cor específica dos botões*/
 .btn-news {
   background: rgb(15, 25, 45);
 }
@@ -95,7 +118,9 @@ body {
   background: rgb(15, 25, 45);
 }
 
-/* CARDS */
+/*    CARDS      */
+
+/*Organiza os cards*/
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -103,6 +128,7 @@ body {
   margin-bottom: 25px;
 }
 
+/* Aparência individual dos cards */
 .card {
   padding: 20px;
   border-radius: 12px;
@@ -114,13 +140,16 @@ body {
   margin-bottom: 10px;
 }
 
+/* Valor principal exibido no card */
 .card p {
   font-size: 32px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.9);
 }
 
-/* SEÇÕES */
+/*   SEÇÕES   */
+
+/* blocos de informações */
 .section {
   border-radius: 12px;
   padding: 20px;
@@ -138,6 +167,7 @@ body {
   border-bottom: 1px solid #e2e8f0;
 }
 
+/* Remove a borda do último item */
 .item:last-child {
   border: none;
 }
@@ -148,14 +178,18 @@ body {
   color: rgba(194, 26, 26, 0.925);
 }
 
+/* Destaque para o título do item */
 .item-info {
   color: rgb(192, 178, 178);
   font-size: 14px;
 }
 
-/* RESPONSIVO */
+/*  RESPONSIVO  */
+
+/* Ajustes para mobile devices */
 @media(max-width:768px) {
 
+  /* Oculta o menu lateral */
   .sidebar {
     display: none;
   }
@@ -173,19 +207,24 @@ body {
   }
 }
 
-/*Não sei*/
+/* Cor de fundo padrão */
 .card,
 .header,
 .section {
   background: rgb(15, 25, 45);
 }
 
+/* Remove decoração dos links */
 a,
 a:visited {
     text-decoration: none;
     color: inherit;
 }
 
+/* ================= POPUP DE NOTÍCIAS ================= */
+
+
+/* Overlay que cobre toda a tela quando o popup é aberto */
 .popupNoticia {
   display: none;
 
@@ -199,9 +238,11 @@ a:visited {
   justify-content: center;
   align-items: center;
 
+  /* Escurece e desfoca o fundo da página */
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
 
+/* Garante que fique acima dos demais elementos */
   z-index: 999;
 }
 
@@ -225,15 +266,20 @@ a:visited {
 
   text-align: center;
 
+  /* Adiciona rolagem caso o conteúdo ultrapasse o tamanho disponível */
       overflow-y: auto;
 }
 
+/* Formulário utilizado dentro do popup */
 .formPopupNoticia {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
+/* ================= BOTÕES DE IMAGEM ================= */
+
+/* Botão para selecionar ou enviar imagem */
 .btnImagem {
   background: #ffffff;
   color: rgb(15, 25, 45);
@@ -252,6 +298,7 @@ a:visited {
   opacity: .9;
 }
 
+/* Segundo botão relacionado à imagem */
 .btnImagem2 {
   background: #ffffff;
   color: rgb(15, 25, 45);
@@ -268,21 +315,31 @@ a:visited {
   opacity: .9;
 }
 
+/* Botão de confirmação de corte permanece oculto até ser necessário */
+
 #btnConfirmarCorte {
     display: none;
 }
 
+/* ================= PRÉ-VISUALIZAÇÃO DA IMAGEM ================= */
+
+/* Área que exibe a imagem selecionada */
 #preview {
   width: 100%;
   height: 50%;
+   /* Ajusta a imagem sem deformá-la */
   object-fit: cover;
 
   border: 2px solid #ccc;
   border-radius: 10px;
 
+ /* Inicialmente oculto */
   display: none;
 }
 
+/* ================= CAMPO DE TÍTULO ================= */
+
+/* Personaliza o campo de texto do título */
 .tituloLabel input {
   width: 100%;
   height: auto;
@@ -297,6 +354,9 @@ a:visited {
 
 }
 
+/* ================= CAMPO DE DESCRIÇÃO ================= */
+
+/* Personaliza a área de descrição da notícia */
 .descricaoLabel textarea {
   width: 100%;
   height: 25vh;
@@ -310,18 +370,25 @@ a:visited {
   color: white;
 }
 
+/* Remove a borda padrão ao selecionar o campo */
 .descricaoLabel textarea:focus {
   outline: none;
 }
 
+/* Remove a borda padrão ao selecionar o campo */
 .tituloLabel input:focus {
   outline: none;
 }
+
+/* Personaliza a cor dos placeholders */
 
 .tituloLabel input::placeholder, .descricaoLabel textarea::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* ================= BOTÕES DO POPUP ================= */
+
+/* Organiza os botões lado a lado */
 .popupBotoes {
   display: flex;
   gap: 10px;
@@ -337,6 +404,7 @@ a:visited {
   cursor: pointer;
 }
 
+/* botão logout com aparência simples*/
 .btnLogout {
   background: none;
   border: none;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grêmio News</title>
     <script src="../Login_Page/index_login.js" defer></script>
-    <script src="index_inicio.js"></script>
+    <script src="index_inicio.js" defer></script>
     <link rel="icon" type="image/png" href="../Pictures/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -23,6 +23,16 @@
                 </div>
 
                 <div class="caixaPesquisa">
+                    <div class="dropdown">
+                        <a class="btn btn-secondary settings" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        </a>
+                      
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Action</a></li>
+                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                      </div>
                     <nav class="navbar bg-body-tertiary">
                         <div class="container-fluid">
                                 <form class="d-flex" role="search">
@@ -34,9 +44,6 @@
                     <a href="https://www.instagram.com/evagremioestudantil" target="_blank" class="redirecionamento">
                         <img src="../Pictures/instagram.png" alt="" class="redirecionamento">
                     </a>
-
-                    <img src="../Pictures/settings.png" alt="" class="settings">
-
                 </div>
             </div>
 
@@ -73,8 +80,8 @@
             <div class="caixaNoticia">
 
                 <div class="noticia1">
-                    <div class="">
-                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia1">
+                    <div>
+                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia1" id="imgNoticia1">
                     </div>
 
                     <div class="tituloNoticia1"></div>
@@ -83,7 +90,7 @@
 
                 <div class="noticia2">
                     <div class="fotoNoticia2">
-                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia2">
+                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia2" id="imgNoticia2">
                     </div>
 
                     <div class="tituloNoticia2"></div>
@@ -92,7 +99,7 @@
 
                 <div class="noticia3">
                     <div class="fotoNoticia3">
-                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia3">
+                        <img src="../Pictures/foto1.jpg" alt="" class="fotoNoticia3" id="imgNoticia3">
                     </div>
 
                     <div class="tituloNoticia3"></div>

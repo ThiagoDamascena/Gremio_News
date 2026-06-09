@@ -59,9 +59,9 @@ body{
     min-height: 80px;
     justify-content: end;
     align-items: center;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     grid-area:
-    "settings"
+    "dropdown"
     "barraPesquisa"
     "redirecionamento"
     ;
@@ -89,21 +89,42 @@ body{
 
 .redirecionamento{
     display: block;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background-size: cover;
     justify-self: end;
     margin-right: 10px;
-    grid-area: settings;
 }
 
 .settings {
     display: block;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     background-size: cover;
-    justify-self: end;
-    margin-right: 10px;
+    background-image: url(../Pictures/settings.png);
+    background-position: center;
+}
+
+.btn-secondary{
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    width: 40px;
+    --bs-btn-active-bg: transparent;
+}
+
+.btn-secondary:hover{
+    background-color: transparent;
+    border: none;
+}
+
+.btn-secondary:active{
+    background-color: transparent;
+    border: none;
+}
+
+.dropdown{
+    overflow: visible;
 }
 
 img.redirecionamento{

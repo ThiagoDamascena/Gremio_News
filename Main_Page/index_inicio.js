@@ -1,84 +1,69 @@
-const tituloNoticia1 = {
-    titulo: "Notícia 1",
-    conteudo: "Conteúdo da notícia 1"
-};
+async function carregarNoticias() {
 
-window.tituloNoticia1 = tituloNoticia1;
+    const resposta =
+        await fetch(
+            "http://localhost:5000/noticias"
+        )
 
-function renderNoticia1() {
-    const tituloEl = document.querySelector('.tituloNoticia1');
-    const conteudoEl = document.querySelector('.conteudoNoticia1');
+    const noticias =
+        await resposta.json()
 
-    if (tituloEl) {
-        tituloEl.textContent = tituloNoticia1.titulo;
+    if(noticias[0]){
+
+        document.querySelector(
+            ".tituloNoticia1"
+        ).textContent =
+            noticias[0].titulo
+
+        document.querySelector(
+            ".conteudoNoticia1"
+        ).textContent =
+            noticias[0].conteudo
+
+        document.getElementById(
+            ".imgNoticia1"
+        ).src =
+            `http://localhost:5000/uploads/${noticias[0].imagem}`
     }
-    if (conteudoEl) {
-        conteudoEl.textContent = tituloNoticia1.conteudo;
+
+    if(noticias[1]){
+
+        document.querySelector(
+            ".tituloNoticia2"
+        ).textContent =
+            noticias[1].titulo
+
+        document.querySelector(
+            ".conteudoNoticia2"
+        ).textContent =
+            noticias[1].conteudo
+
+        document.getElementById(
+            ".imgNoticia2"
+        ).src =
+            `http://localhost:5000/uploads/${noticias[1].imagem}`
     }
-}
 
-window.renderNoticia1 = renderNoticia1;
+    if(noticias[2]){
 
-document.addEventListener('DOMContentLoaded', renderNoticia1);
+        document.querySelector(
+            ".tituloNoticia3"
+        ).textContent =
+            noticias[2].titulo
 
-const tituloNoticia2 = {
-    titulo: "Notícia 2",
-    conteudo: "Conteúdo da notícia 2"
-};
+        document.querySelector(
+            ".conteudoNoticia3"
+        ).textContent =
+            noticias[2].conteudo
 
-window.tituloNoticia2 = tituloNoticia2;
-
-function renderNoticia2() {
-    const tituloEl = document.querySelector('.tituloNoticia2');
-    const conteudoEl = document.querySelector('.conteudoNoticia2');
-
-    if (tituloEl) {
-        tituloEl.textContent = tituloNoticia2.titulo;
-    }
-    if (conteudoEl) {
-        conteudoEl.textContent = tituloNoticia2.conteudo;
-    }
-}
-
-window.renderNoticia2 = renderNoticia2;
-
-document.addEventListener('DOMContentLoaded', renderNoticia2);
-
-const tituloNoticia3 = {
-    titulo: "Notícia 3",
-    conteudo: "Conteúdo da notícia 3"
-};
-
-window.tituloNoticia3 = tituloNoticia3;
-
-function renderNoticia3() {
-    const tituloEl = document.querySelector('.tituloNoticia3');
-    const conteudoEl = document.querySelector('.conteudoNoticia3');
-
-    if (tituloEl) {
-        tituloEl.textContent = tituloNoticia3.titulo;
-    }
-    if (conteudoEl) {
-        conteudoEl.textContent = tituloNoticia3.conteudo;
-    }
-}
-
-window.renderNoticia3 = renderNoticia3;
-
-document.addEventListener('DOMContentLoaded', renderNoticia3);
-
-function renderNoticia1() {
-    const tituloEl = document.querySelector('.tituloNoticia1');
-    const conteudoEl = document.querySelector('.conteudoNoticia1');
-
-    if (tituloEl) {
-        tituloEl.textContent = tituloNoticia1.titulo;
-    }
-    if (conteudoEl) {
-        conteudoEl.textContent = tituloNoticia1.conteudo;
+        document.getElementById(
+            ".imgNoticia3"
+        ).src =
+            `http://localhost:5000/uploads/${noticias[2].imagem}`
     }
 }
 
-window.renderNoticia1 = renderNoticia1;
-
-document.addEventListener('DOMContentLoaded', renderNoticia1);
+document.addEventListener(
+    "DOMContentLoaded",
+    carregarNoticias
+)
