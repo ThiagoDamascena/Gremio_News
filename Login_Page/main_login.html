@@ -10,32 +10,42 @@
     <script src="./index_login.js" defer></script>
 </head>
 <body> 
+
+    <!-- Container principal -->
     <div class="main">
+        
+           <!-- Caixa que contém todos os formulários -->
         <div class="caixa">
 
-                    <div class="form-box active" id="login-form">
+            <!-- =======Formulário de Login do Aluno------>       
+            <div class="form-box active" id="login-form">
                                 
-                        <form id="aluno-form-element">        
-                        
+                        <form id="aluno-form-element">  
+
+                            <!-- Título da página -->
                         <h3 class="tituloh3">BEM VINDO AO</h3>
                         <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
                         <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
 
+                        <!-- Título do formulário -->
                         <h3 class="titulologin_cima">Entre</h3>     
                             
                         <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>  
 
+                        <!-- Campo matrícula -->
                         <div class="input-box">
                             <input placeholder="Matrícula" type="text" name="aluno-matricula" id="aluno-matricula" required>
                             <i class="bx bxs-user"></i>
                         </div>
-                                                                
+                        
+                        <!-- Campo senha -->
                         <div class="input-box">
                             </label>
                             <input placeholder="Senha" type="password" name="aluno-senha" id="aluno-senha" required>
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                         
+                        <!-- Lembrar senha e recuperação -->
                         <div class="remember-forgot">
                             <label>
                                 <input type="checkbox">
@@ -43,84 +53,108 @@
                             </label>
                             <a href="">Esqueci minha senha</a>
                         </div>
-                            
+                        
+                        <!-- Botão de login -->
                         <button type="submit" class="botao" name="aluno-login"><strong>Entrar</strong></button>
 
+                        <!-- Link para cadastro -->
                         <p class="register">Não tem uma conta? <a href="#" onclick="showForm('register-form')">Cadastre-se</a></p>
 
+                        <!-- Link para login administrador -->
                         <p class="register"><a href="#" onclick="showForm('admin-form')">Entrar como Administrador</a></p>
                     
                     </form>
 
                     </div>
                 
+                    <!-- =========FORMULÁRIO DE CADASTRO============== -->
                     <div class="form-box" id="register-form">
                     
                         <form>                                                                  
                             
+                            <!-- Cabeçalho -->
                             <h3 class="tituloh3">BEM VINDO AO</h3>
                             <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
                             <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
 
+                            <!-- Título -->
                             <h3 class="titulologin_cima">Cadastre-se</h3>    
 
                             <h3 class="titulologin_meio">Insira suas informações nos campos abaixo:</h3>  
 
+                            
+                            <!-- Upload de foto -->
                             <div class="input-box">
                                 <input placeholder="Foto" type="file" name="foto" accept="image/*"> 
                                 <i class="bx bxs-user"></i>
-                            </div>    
+                            </div>  
+                            
+                            <!-- Nome -->
                             <div class="input-box">
                                 <input id="aluno-nome" placeholder="Nome" type="text" name="aluno-nome" required>
                                 <i class="bx bxs-user"></i>
                             </div>    
 
+                            <!-- E-mail -->
                             <div class="input-box">
                                 <input id="aluno-email" placeholder="Email" type="email" name="aluno-email" required>
                                 <i class="bx bxs-user"></i>
                             </div>
 
+                            <!-- Matrícula -->
                             <div class="input-box">
                                 <input id="aluno-matricula" placeholder="Matrícula" type="text" name="aluno-matricula" required>
                                 <i class="bx bxs-user"></i>
                             </div>
                                                                 
+                            <!-- Senha -->
                             <div class="input-box">
                                 </label>
                                 <input id="aluno-senha" placeholder="Senha" type="password" name="aluno-senha" required>
                                 <i class="bx bxs-lock-alt"></i>
                             </div>
                             
+                            
+                            <!-- Botão cadastro -->
                             <button type="submit" class="botao" name="register"><strong>Cadastrar-se</strong></button>
 
+                            <!-- Voltar para login -->
                             <p class="register">Já tem uma conta? <a href="#" onclick="showForm('login-form')">Entre</a></p>
                         
                         </form>
                     </div>
 
-                 <div class="form-box" id="admin-form">
+                 
+                    <!-- ===========FORMULÁRIO DE LOGIN ADMINISTRADOR========== -->
+                     
+                    <div class="form-box" id="admin-form">
                                 
-                        <form id="admin-form-element">        
-                        
+                        <form id="admin-form-element">
+
+                         <!-- Cabeçalho -->
                         <h3 class="tituloh3">BEM VINDO AO</h3>
                         <h2 class="tituloh2">SITE DE NOTÍCIAS DO GRÊMIO ESTUDANTIL</h2>
                         <h4 class="tituloh4">Criado de estudante para estudante, para auxilar você!</h4>
 
+                        <!-- Título -->
                         <h3 class="titulologin_cima">Entrar como Administrador</h3>     
                             
                         <h3 class="titulologin_meio">Insira suas informações de login nos campos abaixo:</h3>  
 
+                        <!-- Matrícula do administrador -->
                         <div class="input-box">
                             <input placeholder="Matrícula" type="text" name="admin-matricula" id="admin-matricula" required>
                             <i class="bx bxs-user"></i>
                         </div>
                                                                 
+                        <!-- Senha do administrador -->
                         <div class="input-box">
                             </label>
                             <input placeholder="Senha" type="password" name="admin-senha" id="admin-senha" required>
                             <i class="bx bxs-lock-alt"></i>
                         </div>
                         
+                        <!-- Lembrar senha -->
                         <div class="remember-forgot">
                             <label>
                                 <input type="checkbox">
@@ -129,8 +163,11 @@
                             <a href="">Esqueci minha senha</a>
                         </div>
                             
+
+                        <!-- Botão de login -->
                         <button type="submit" class="botao" name="admin-login"><strong>Entrar</strong></button>
 
+                        <!-- Voltar para login de aluno -->
                         <p class="register"><a href="#" onclick="showForm('login-form')">Entrar como Aluno</a></p>
                     
                     </form>

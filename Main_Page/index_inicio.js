@@ -14,6 +14,20 @@ async function carregarNoticias() {
             ".tituloNoticia1"
         ).textContent =
             noticias[0].titulo
+        
+        document.querySelector(
+            ".dataNoticia1"
+        ).textContent =
+            new Date(
+                noticias[0].data_publicacao
+            ).toLocaleDateString(
+            "pt-BR",
+            {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+            }
+            )
 
         document.querySelector(
             ".conteudoNoticia1"
@@ -21,7 +35,7 @@ async function carregarNoticias() {
             noticias[0].conteudo
 
         document.getElementById(
-            ".imgNoticia1"
+            "imgNoticia1"
         ).src =
             `http://localhost:5000/uploads/${noticias[0].imagem}`
     }
@@ -34,12 +48,26 @@ async function carregarNoticias() {
             noticias[1].titulo
 
         document.querySelector(
+            ".dataNoticia2"
+        ).textContent =
+            new Date(
+                noticias[1].data_publicacao
+            ).toLocaleDateString(
+            "pt-BR",
+            {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+            }
+            )
+
+        document.querySelector(
             ".conteudoNoticia2"
         ).textContent =
             noticias[1].conteudo
 
         document.getElementById(
-            ".imgNoticia2"
+            "imgNoticia2"
         ).src =
             `http://localhost:5000/uploads/${noticias[1].imagem}`
     }
@@ -52,12 +80,26 @@ async function carregarNoticias() {
             noticias[2].titulo
 
         document.querySelector(
+            ".dataNoticia3"
+        ).textContent =
+            new Date(
+                noticias[2].data_publicacao
+            ).toLocaleDateString(
+            "pt-BR",
+            {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+            }
+            )
+
+        document.querySelector(
             ".conteudoNoticia3"
         ).textContent =
             noticias[2].conteudo
 
         document.getElementById(
-            ".imgNoticia3"
+            "imgNoticia3"
         ).src =
             `http://localhost:5000/uploads/${noticias[2].imagem}`
     }

@@ -159,3 +159,4 @@ function logoutAdmin() {
     localStorage.removeItem("admin")
     window.location.href = "../Login_Page/index_login.html"
 }
+

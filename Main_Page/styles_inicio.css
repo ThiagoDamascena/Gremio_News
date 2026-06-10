@@ -5,10 +5,13 @@
     overflow-x: hidden;
 }
 
+/* Define a fonte padrão da página */
 body{
     font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
 }
 
+/* Container principal usando grid */
 .conteiner{
     display: grid;  
     min-height: 100vh;
@@ -20,10 +23,12 @@ body{
     ;
 }
 
+/* Área superior da página */
 .top{
     display:grid;
 }
 
+/* Caixa central do topo contendo logo e pesquisa */
 .caixaTopo{
     width: 70%;
     height: 100%;
@@ -32,12 +37,14 @@ body{
     display: grid;
 }
 
+/* Estrutura da logo */
 .caixaLogo{
     min-height: 80px;
     display: grid;
     grid-template-columns: 40% 60%;
 }
 
+/* Imagem da logo */
 .logo{
     width: 100%;
     height: 100%;
@@ -47,12 +54,14 @@ body{
     overflow: visible;
 }
 
+/* Texto ao lado da logo */
 .textoLogo{
     font-size: clamp(1vw, 2vw, 3vw);
     grid-column: 2;
     width: auto;
 }
 
+/* Área de pesquisa */
 .caixaPesquisa{
     display:grid;
     width: auto;
@@ -67,6 +76,7 @@ body{
     ;
 }
 
+/* Campo de busca */
 .barraPesquisa{
     border-radius: 5px;
     height: clamp(20px, 3vh, 4.5vh);
@@ -75,6 +85,7 @@ body{
     margin-right: 10px;
 }
 
+/* Personalização do botão Bootstrap */
 .btn-outline-success{
     text-align: center;
     padding: 0;
@@ -83,10 +94,12 @@ body{
     color: green;
 }
 
+/* Remove fundo padrão do Bootstrap */
 .bg-body-tertiary{
     background-color: transparent!important;
 }
 
+/* Ícone de redirecionamento */
 .redirecionamento{
     display: block;
     height: 40px;
@@ -96,43 +109,31 @@ body{
     margin-right: 10px;
 }
 
-.settings {
+/* Ícone de configurações */
+.settings{
     display: block;
     height: 40px;
     width: 40px;
     background-size: cover;
     background-image: url(../Pictures/settings.png);
-    background-position: center;
-}
-
-.btn-secondary{
-    background-color: transparent;
     border: none;
-    height: 40px;
-    width: 40px;
-    --bs-btn-active-bg: transparent;
+    justify-self: end;
+    margin-right: 10px;
 }
 
-.btn-secondary:hover{
-    background-color: transparent;
-    border: none;
+button.settings{
+    margin: 0;
 }
 
-.btn-secondary:active{
-    background-color: transparent;
-    border: none;
-}
-
-.dropdown{
-    overflow: visible;
-}
-
+/* Ajuste para imagens com classe redirecionamento */
 img.redirecionamento{
     margin-right: 0;
 }
 
-/* Caixa Principal */
+/* ======Caixa Principal===== */
 
+
+/*=Estrutura principal da página=*/
 .main{
     display: grid;
     grid-area: main;
@@ -145,6 +146,7 @@ img.redirecionamento{
     ;
 }
 
+/* Área de últimas notícias */
 .caixaLastNews{
     grid-area: caixaLastnews;
     display: grid;
@@ -152,6 +154,7 @@ img.redirecionamento{
     width: 100%;
 }
 
+/* Carrossel ou destaque principal */
 .lastNews{
     background-color: rgb(255, 255, 255);
     height: 100%;
@@ -159,6 +162,7 @@ img.redirecionamento{
     align-self: start;
 }
 
+/* Título da seção de notícias */
 .tituloNoticia{
     grid-area: tituloNoticia;
     height: 10vh;
@@ -167,8 +171,9 @@ img.redirecionamento{
     align-items: center;
 }
 
+/* Container das notícias */
 .caixaNoticia{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(240, 240, 240);
     grid-area: caixaNoticia;
     display: grid;
     grid-template-areas:
@@ -181,6 +186,7 @@ img.redirecionamento{
     overflow: visible;
 }
 
+/* Responsividade para telas pequenas */
 @media (max-width: 550px) {
     .caixaNoticia{
         grid-template-areas:
@@ -191,6 +197,7 @@ img.redirecionamento{
     }
 }
 
+/* Estilo dos cards de notícias */
 .noticia1, .noticia2, .noticia3{
     background-color: rgb(255, 255, 255);
     height: clamp(250px, 40vh, 500px);
@@ -201,10 +208,20 @@ img.redirecionamento{
     box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
 }
 
+.dataNoticia1, .dataNoticia2, .dataNoticia3 {
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Posicionamento de cada notícia */
 .noticia1{
     grid-area: noticia1;
 }
 
+/* Imagens das notícias */
 .fotoNoticia1, .fotoNoticia2, .fotoNoticia3{
     width: 100%;
     height: clamp(150px, 25vh, 400px);
@@ -212,6 +229,7 @@ img.redirecionamento{
     border-radius: 0 0 10px 10px;
 }
 
+/* Títulos das notícias */
 .tituloNoticia1, .tituloNoticia2, .tituloNoticia3{
     font-size: 1.6rem;
     font-weight: 700;
@@ -222,6 +240,7 @@ img.redirecionamento{
     padding: 0 1rem;
 }
 
+/* Conteúdo/resumo das notícias */
 .conteudoNoticia1, .conteudoNoticia2, .conteudoNoticia3{
     font-size: 1rem;
     color: #333;
@@ -239,6 +258,7 @@ img.redirecionamento{
     grid-area: noticia3;
 }
 
+/* Área do resumo geral */
 .caixaResumo{
     grid-area: caixaResumo;
     width: 100%;
@@ -248,6 +268,7 @@ img.redirecionamento{
     align-items: center;
 }
 
+/* Card de resumo */
 .previewResumo{
     background-color: rgb(255, 255, 255);
     height: 35vh;
@@ -257,6 +278,7 @@ img.redirecionamento{
     width: 90%; 
 }
 
+/* Rodapé */
 .rodape{
     grid-area: rodape;
     display: grid;
@@ -264,19 +286,25 @@ img.redirecionamento{
     color: white;
 }
 
+/* ========Carrosel========== */
 
+/* Permite que controles fiquem visíveis fora do container */
 #carouselExampleRide{
     position: relative;
     overflow: visible;
 }
 
+/* Ajusta posição da seta anterior */
 .carousel-control-prev {
     left: 1vw!important;
 }
 
+/* Ajusta posição da seta seguinte */
 .carousel-control-next {
     right: 1vw!important;
 }
+
+/* Remove largura excessiva dos controles */
 #carouselExampleRide .carousel-control-prev,
 #carouselExampleRide .carousel-control-next {
     width: auto;
