@@ -6,31 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles_admin.css">
   <script src="index_admin.js" defer></script>
+
+  <!-- Biblioteca CropperJS para corte de imagens -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.js" defer></script>
+
   <title>Painel Administrativo do Grêmio News</title>
 </head>
 
 <body>
 
-  <!-- MENU -->
+<!-- ================= MENU LATERAL ================= -->
   <div class="sidebar">
 
+    <!-- Título do menu -->
     <h2>&#127891; GRÊMIO</h2>
 
+    <!-- Lista de opções do menu -->
     <ul>
       <li>&#127968; Painel</li>
       <li>&#128240; Notícias</li>
       <li>&#128218; Resumos</li>
+
+      <!-- Botão para voltar à página inicial -->
       <li><button onclick="logoutAdmin()" class="btnLogout"><a href="../Main_Page/main_inicio.html">&#11013; Voltar à página inicial</a></button></li>
     </ul>
 
   </div>
 
-  <!-- CONTEÚDO -->
+  <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+
   <div class="main">
 
-    <!-- CABEÇALHO -->
+    <!-- Cabeçalho da pag -->
     <div class="header">
       <h1>Painel Administrativo do Grêmio Estudantil</h1>
 
@@ -40,56 +48,83 @@
       </p>
     </div>
 
-    <!-- BOTÕES -->
+    <!-------- BOTÕES DE AÇÃO ---------->
+
     <div class="actions">
 
+        <!-- Abre o popup para publicar uma notícia -->
       <button onclick="abrirPopupNoticia()" class="btn btn-news">
         &#128240; Publicar Notícia
       </button>
 
+        <!-- Futuro botão para gerenciar resumos -->
       <button class="btn btn-summary">
         &#128218; Ler/Adicionar Resumos
       </button>
 
     </div>
 
-    <!-- POPUP NOTÍCIA -->
+      <!-- ================= POPUP DE PUBLICAÇÃO DE NOTÍCIA ================= -->
+
     <div id="popupNoticia" class="popupNoticia">
       <div class="conteudoPopupNoticia">
 
+         <!-- Formulário de cadastro da notícia -->
         <form id="formNoticia" class="formPopupNoticia">
 
           <h2>Adicionar Nova Notícia</h2>
+
+          <!-- Campo oculto para selecionar imagem -->
           <input type="file" id="imagem" accept="image/*" hidden onclick="cortarImagem()">
+
+          <!-- Botão visual para selecionar imagem -->
           <label for="imagem" class="btnImagem">Selecionar Imagem</label>
+
+           <!-- Pré-visualização da imagem escolhida -->
           <img id="preview" src="" alt="Prévia da imagem">
 
+          <!-- Botão para confirmar o recorte da imagem -->
           <button type="button" onclick="confirmarCorte()" class="btnImagem2" id="btnConfirmarCorte">
               Confirmar Corte
           </button>
+
+           <!-- Resultado final da imagem cortada -->
           <img id="resultado">
 
+          
+            <!-- Campo de título da notícia -->
           <label class="tituloLabel"><input type="text" placeholder="Título" name="titulo" required></label>
+
+           <!-- Campo de descrição/conteúdo -->
           <label class="descricaoLabel"><textarea placeholder="Descrição" name="conteudo" required></textarea></label>
 
         </form>
 
+          <!-- Botões do popup -->
         <div class="popupBotoes">
+         
+         <!-- Publica a notícia -->
           <button type="submit" onclick="publicarNoticia()" class="estiloBotao">Publicar</button>
+          
+            <!-- Fecha o popup sem salvar -->
           <button type="button" onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
         </div>
 
       </div>
     </div>
 
-    <!-- ESTATÍSTICAS -->
-    <div class="cards">
+        <!-- ================= ESTATÍSTICAS ================= -->
 
+
+    <div class="cards"> 
+
+        <!-- Quantidade de notícias -->
       <div class="card">
         <h3>Notícias Publicadas</h3>
         <p>12</p>
       </div>
 
+       <!-- Quantidade de resumos -->
       <div class="card">
         <h3>Resumos Enviados</h3>
         <p>34</p>
@@ -97,11 +132,14 @@
 
     </div>
 
-    <!-- NOTÍCIAS -->
+     <!-- ================= ÚLTIMAS NOTÍCIAS ================= -->
+
+
     <div class="section">
 
       <h2>&#128240 Últimas Notícias</h2>
 
+      <!-- Notícia 1 -->
       <div class="item">
         <div class="item-title">
           Feira de Ciências acontecerá em Agosto
@@ -112,6 +150,9 @@
         </div>
       </div>
 
+
+      
+      <!-- Notícia 2 -->
       <div class="item">
         <div class="item-title">
           Inscrições abertas para o Interclasse
@@ -122,6 +163,8 @@
         </div>
       </div>
 
+
+      <!-- Notícia 3 -->
       <div class="item">
         <div class="item-title">
           Campanha de arrecadação de livros
@@ -134,11 +177,14 @@
 
     </div>
 
-    <!-- RESUMOS -->
+     <!-- ================= ÚLTIMOS RESUMOS ================= -->
+
+
     <div class="section">
 
       <h2>&#128218; Últimos Resumos Enviados</h2>
 
+      <!-- Resumo 1 -->
       <div class="item">
         <div class="item-title">
           Função do 2º Grau
@@ -149,6 +195,8 @@
         </div>
       </div>
 
+
+      <!-- Resumo 2 -->
       <div class="item">
         <div class="item-title">
           Revolução Francesa
@@ -159,6 +207,8 @@
         </div>
       </div>
 
+
+      <!-- Resumo 3 -->
       <div class="item">
         <div class="item-title">
           Ecologia

@@ -1,5 +1,5 @@
 async function carregarNoticias() {
-
+    // BUSCA AS NOTÍCIAS NO SERVIDOR
     const resposta =
         await fetch(
             "http://localhost:5000/noticias"
@@ -8,6 +8,7 @@ async function carregarNoticias() {
     const noticias =
         await resposta.json()
 
+    // EXIBE A PRIMEIRA NOTÍCIA
     if(noticias[0]){
 
         document.querySelector(
@@ -40,6 +41,7 @@ async function carregarNoticias() {
             `http://localhost:5000/uploads/${noticias[0].imagem}`
     }
 
+    // EXIBE A SEGUNDA NOTÍCIA
     if(noticias[1]){
 
         document.querySelector(
@@ -72,6 +74,7 @@ async function carregarNoticias() {
             `http://localhost:5000/uploads/${noticias[1].imagem}`
     }
 
+    // EXIBE A TERCEIRA NOTÍCIA
     if(noticias[2]){
 
         document.querySelector(
@@ -105,6 +108,7 @@ async function carregarNoticias() {
     }
 }
 
+// EXECUTA A FUNÇÃO QUANDO A PÁGINA TERMINAR DE CARREGAR
 document.addEventListener(
     "DOMContentLoaded",
     carregarNoticias
