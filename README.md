@@ -2,10 +2,10 @@
 Este é um projeto para um site do Grêmio estudantil do IFPE campus Paulista  
 ![Badge](https://img.shields.io/badge/Progresso-80%25-orange)
 ## Autores😎
+* Líder: Thiago Damascena
 * Luiz Carlos
 * Matheus Henrique
 * Thallys Regis
-* Thiago Damascena
 
 ### Mentor
 * Rodrigo Rocha
