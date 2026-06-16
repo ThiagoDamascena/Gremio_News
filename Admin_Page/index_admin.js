@@ -35,7 +35,7 @@ const preview = document.getElementById("preview");
 imagem.addEventListener("change", function() {
   const arquivo = this.files[0];
 
-  if (arquivo) {
+	if (arquivo) {
     preview.src = URL.createObjectURL(arquivo);
     preview.style.display = "block";
   }
