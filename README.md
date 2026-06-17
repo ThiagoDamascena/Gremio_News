@@ -32,3 +32,8 @@ A página de Admin é onde eles poderão gerenciar os conteúdos do site.
 ## Contato✉️
 Para enviar suas sugestões e reclamações contate-nos por meio do email:  
 evagremioestudantil@gmail.com
+
+## Como inicializar
+No terminal da raíz do projeto digite  
+`python -m http.server 8000`
+e `node Server/sever.js`
