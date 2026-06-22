@@ -44,7 +44,7 @@ registerForm.addEventListener("submit", async (e) => {
     console.log(data)
 
     const response = await fetch(
-        "http://localhost:5000/register",
+        "http://localhost:3000/register",
 
         {
 
@@ -78,7 +78,7 @@ document.getElementById("admin-form-element").addEventListener("submit", async e
         document.getElementById("admin-senha").value
 
     const resposta = await fetch(
-        "http://localhost:5000/admin-login",
+        "http://localhost:3000/admin-login",
         {
             method: "POST",
             headers: {
@@ -123,7 +123,7 @@ document.getElementById("aluno-form-element").addEventListener("submit", async e
         document.getElementById("aluno-senha").value
 
     const resposta = await fetch(
-        "http://localhost:5000/login-form",
+        "http://localhost:3000/login-form",
         {
             method: "POST",
             headers: {

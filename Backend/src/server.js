@@ -1,15 +1,30 @@
-const multer = require("multer")
-const path = require("path")
-
 const express = require("express")
+const path = require("path")
 const cors = require("cors")
+const multer = require("multer")
 
 const db = require("./database")
 
-const app = express()
+const app = express();
 
 app.use(cors())
 app.use(express.json())
+
+const FRONTEND = path.join(__dirname, "../../Frontend");
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(FRONTEND, "pages/home/index_home.html"));
+});
+
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(FRONTEND, "pages/login/index_login.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(FRONTEND, "pages/admin/index_admin.html"));
+});
+
+app.use(express.static(path.join(__dirname, "../../Frontend")));
 
 const storage = multer.diskStorage({
 
@@ -42,10 +57,6 @@ app.use(
         path.join(__dirname, "uploads")
     )
 )
-
-app.get("/", (req, res) => {
-    res.send("Servidor funcionando")
-})
 
 app.post("/register", (req, res) => {
 
@@ -263,6 +274,6 @@ app.get("/noticias", (req, res) => {
     })
 })
 
-app.listen(5000, () => {
+app.listen(3000, () => {
     console.log("Servidor rodando")
 })
