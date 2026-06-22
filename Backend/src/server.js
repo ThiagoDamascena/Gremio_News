@@ -7,10 +7,17 @@ const db = require("./database")
 
 const app = express();
 
-app.use(cors())
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type"]
+}));
+
 app.use(express.json())
 
-const FRONTEND = path.join(__dirname, "../../Frontend");
+const FRONTEND = path.resolve("/Frontend");
+
+app.use(express.static(FRONTEND));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(FRONTEND, "pages/home/index_home.html"));
@@ -24,7 +31,7 @@ app.get("/admin", (req, res) => {
   res.sendFile(path.join(FRONTEND, "pages/admin/index_admin.html"));
 });
 
-app.use(express.static(path.join(__dirname, "../../Frontend")));
+
 
 const storage = multer.diskStorage({
 

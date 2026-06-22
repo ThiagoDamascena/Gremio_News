@@ -2,7 +2,7 @@ async function carregarNoticias() {
     // BUSCA AS NOTÍCIAS NO SERVIDOR
     const resposta =
         await fetch(
-            "http://localhost:5000/noticias"
+            "http://localhost:3000/noticias"
         )
 
     const noticias =
@@ -38,7 +38,7 @@ async function carregarNoticias() {
         document.getElementById(
             "imgNoticia1"
         ).src =
-            `http://localhost:5000/uploads/${noticias[0].imagem}`
+            `http://localhost:3000/uploads/${noticias[0].imagem}`
     }
 
     // EXIBE A SEGUNDA NOTÍCIA
@@ -71,7 +71,7 @@ async function carregarNoticias() {
         document.getElementById(
             "imgNoticia2"
         ).src =
-            `http://localhost:5000/uploads/${noticias[1].imagem}`
+            `http://localhost:3000/uploads/${noticias[1].imagem}`
     }
 
     // EXIBE A TERCEIRA NOTÍCIA
@@ -104,7 +104,7 @@ async function carregarNoticias() {
         document.getElementById(
             "imgNoticia3"
         ).src =
-            `http://localhost:5000/uploads/${noticias[2].imagem}`
+            `http://localhost:3000/uploads/${noticias[2].imagem}`
     }
 }
 

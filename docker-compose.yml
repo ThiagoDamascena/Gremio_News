@@ -10,10 +10,10 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./backend/backup.sql:/docker-entrypoint-initdb.d/backup.sql
+      - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
 
   backend:
-    build: ./backend
+    build: ./Backend
     container_name: gremio_api
     restart: always
     ports:
@@ -26,7 +26,8 @@ services:
       DB_PASSWORD: 190326
       DB_NAME: gremio_estudantil
     volumes:
-      - ./backend:/app
+      - ./Backend:/app
+      - ./Frontend:/Frontend
 
 volumes:
   db_data:

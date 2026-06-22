@@ -68,46 +68,28 @@ registerForm.addEventListener("submit", async (e) => {
 // LOGIN ADMIN
 
 document.getElementById("admin-form-element").addEventListener("submit", async e => {
-
     e.preventDefault()
 
-    const matricula =
-        document.getElementById("admin-matricula").value
+    const matricula = document.getElementById("admin-matricula").value.trim()
+    const senha = document.getElementById("admin-senha").value.trim()
 
-    const senha =
-        document.getElementById("admin-senha").value
+    console.log({ matricula, senha })
 
-    const resposta = await fetch(
-        "http://localhost:3000/admin-login",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                matricula,
-                senha
-            })
-        }
-    )
+    const response = await fetch("http://localhost:3000/admin-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ matricula, senha })
+    })
 
-    const resultado = await resposta.json()
-    
+    const data = await response.json().catch(() => null)
 
-    if(resposta.ok){
-
-        localStorage.setItem(
-            "admin",
-            JSON.stringify(resultado.admin)
-        )
-
-        window.location.href =
-            "../Admin_Page/main_admin.html"
+    if (!response.ok) {
+        alert(data?.erro || "Erro no login")
+        return
     }
-    else{
 
-        alert(resultado.erro)
-    }
+    localStorage.setItem("admin", JSON.stringify(data.admin))
+    window.location.href = "../admin/index_admin.html"
 })
 
 // LOGIN ALUNO

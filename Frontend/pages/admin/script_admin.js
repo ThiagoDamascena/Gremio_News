@@ -142,7 +142,7 @@ async function publicarNoticia() {
 
     const resposta =
         await fetch(
-            "http://localhost:5000/noticias",
+            "http://localhost:3000/noticias",
             {
                 method: "POST",
                 body: formData
@@ -157,6 +157,6 @@ async function publicarNoticia() {
 
 function logoutAdmin() {
     localStorage.removeItem("admin")
-    window.location.href = "../Login_Page/index_login.html"
+    window.location.href = "../login/index_login.html"
 }
 
