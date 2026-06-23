@@ -277,6 +277,57 @@ a:visited {
     gap: 10px;
 }
 
+.popupBanner{
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+
+  /* Escurece e desfoca o fundo da página */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+
+/* Garante que fique acima dos demais elementos */
+  z-index: 999;
+}
+
+.conteudoPopupBanner {
+  background: rgb(15, 25, 45);
+
+  width: 60%;
+  aspect-ratio: 1/1;
+
+  max-width: 90vw;
+  max-height: 90vh;
+
+  padding: 20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  color: white;
+
+  text-align: center;
+
+  /* Adiciona rolagem caso o conteúdo ultrapasse o tamanho disponível */
+      overflow-y: auto;
+}
+
+.formPopupBanner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* ================= BOTÕES DE IMAGEM ================= */
 
 /* Botão para selecionar ou enviar imagem */

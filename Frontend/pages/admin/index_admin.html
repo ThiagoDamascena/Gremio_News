@@ -58,6 +58,11 @@
       </button>
 
         <!-- Futuro botão para gerenciar resumos -->
+      <button onclick="abrirPopupBanner()" class="btn btn-summary">
+        &#128218; Atualizar Banner
+      </button>
+
+        <!-- Futuro botão para gerenciar resumos -->
       <button class="btn btn-summary">
         &#128218; Ler/Adicionar Resumos
       </button>
@@ -75,7 +80,7 @@
           <h2>Adicionar Nova Notícia</h2>
 
           <!-- Campo oculto para selecionar imagem -->
-          <input type="file" id="imagem" accept="image/*" hidden onclick="cortarImagem()">
+          <input type="file" id="imagem" accept="image/*" hidden onclick="cortarImagem()" required>
 
           <!-- Botão visual para selecionar imagem -->
           <label for="imagem" class="btnImagem">Selecionar Imagem</label>
@@ -108,7 +113,23 @@
           
             <!-- Fecha o popup sem salvar -->
           <button type="button" onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
+          
         </div>
+
+      </div>
+    </div>
+
+    <div id="popupBanner" class="popupBanner">
+      <div class="conteudoPopupBanner">
+
+          <h2>Atualizar o Banner</h2>
+
+          <form action="">
+
+              <input type="file" name="" id="" accept="image/*" hidden>
+              <label for="imagem" class="btnImagem">Selecionar Imagem</label>
+
+          </form>
 
       </div>
     </div>

@@ -17,14 +17,27 @@ function abrirPopupNoticia(){
     document.getElementById("popupNoticia").style.display = "flex";
 }
 
-function fecharPopupNoticia(){
-    document.getElementById("formNoticia").reset();
-
+window.fecharPopupNoticia = function () {
+    const form = document.getElementById("formNoticia");
     const preview = document.getElementById("preview");
-    preview.src = "";
-    preview.style.display = "none";
+    const popup = document.getElementById("popupNoticia");
 
-    document.getElementById("popupNoticia").style.display = "none";
+    if (form) form.reset();
+
+    if (preview) {
+        preview.src = "";
+        preview.style.display = "none";
+    }
+
+    if (popup) popup.style.display = "none";
+};
+
+function abrirPopupBanner(){
+    document.getElementById("popupBanner").style.display = "flex";
+}
+
+function fecharPopupNoticia(){
+    document.getElementById("popupBanner").style.display = "none";
 }
 
 // PREVIEW DE IMAGEM DE CAPA
@@ -159,4 +172,3 @@ function logoutAdmin() {
     localStorage.removeItem("admin")
     window.location.href = "../login/index_login.html"
 }
-
