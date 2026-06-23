@@ -49,8 +49,24 @@ CREATE TABLE noticias (
     REFERENCES administrador(id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Adcição na tabela notícias
+
 ALTER TABLE noticias
 ADD imagem VARCHAR(255);
+
+-- tabela para armazenar as imagens do banner
+
+CREATE TABLE banners (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  imagem VARCHAR(255) NOT NULL,
+  admin_id INT UNSIGNED NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  KEY idx_banners_admin (admin_id),
+  CONSTRAINT fk_banners_admin FOREIGN KEY (admin_id)
+    REFERENCES administrador(id)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Tabela banco_de_resumos (escritos por alunos)
 
