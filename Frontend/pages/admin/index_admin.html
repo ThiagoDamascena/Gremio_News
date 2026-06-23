@@ -85,7 +85,7 @@
           <!-- Botão visual para selecionar imagem -->
           <label for="imagem" class="btnImagem">Selecionar Imagem</label>
 
-          <!-- Pré-visualização da imagem escolhida -->
+           <!-- Pré-visualização da imagem escolhida -->
           <img id="preview" src="" alt="Prévia da imagem">
 
           <!-- Botão para confirmar o recorte da imagem -->
@@ -93,25 +93,25 @@
               Confirmar Corte
           </button>
 
-          <!-- Resultado final da imagem cortada -->
+           <!-- Resultado final da imagem cortada -->
           <img id="resultado">
 
           
-          <!-- Campo de título da notícia -->
+            <!-- Campo de título da notícia -->
           <label class="tituloLabel"><input type="text" placeholder="Título" name="titulo" required></label>
 
-          <!-- Campo de descrição/conteúdo -->
+           <!-- Campo de descrição/conteúdo -->
           <label class="descricaoLabel"><textarea placeholder="Descrição" name="conteudo" required></textarea></label>
 
         </form>
 
-        <!-- Botões do popup -->
+          <!-- Botões do popup -->
         <div class="popupBotoes">
          
-          <!-- Publica a notícia -->
+         <!-- Publica a notícia -->
           <button type="submit" onclick="publicarNoticia()" class="estiloBotao">Publicar</button>
           
-          <!-- Fecha o popup -->
+            <!-- Fecha o popup sem salvar -->
           <button type="button" onclick="fecharPopupNoticia()" class="estiloBotao">Cancelar</button>
           
         </div>
@@ -124,32 +124,12 @@
 
           <h2>Atualizar o Banner</h2>
 
-          <form id="formBanner" class="formPopupBanner">
+          <form action="">
 
-            <select id="posicaoBanner">
-              <option value="1">Banner 1</option>
-              <option value="2">Banner 2</option>
-              <option value="3">Banner 3</option>
-            </select>
-
-            <input type="file" name="" id="imagemBanner" accept="image/*" hidden>
-            <label for="imagemBanner" class="btnImagem">Selecionar Imagem</label>
-
-            <!-- Pré-visualização da imagem escolhida -->
-            <img id="previewBanner">
+              <input type="file" name="" id="" accept="image/*" hidden>
+              <label for="imagem" class="btnImagem">Selecionar Imagem</label>
 
           </form>
-
-          <!-- Botões do popup -->
-          <div class="popupBotoes">
-
-            <!-- Envia o novo banner -->
-            <button type="button" onclick="atualizarBanners()" class="estiloBotao">Atualizar</button>
-          
-              <!-- Fecha o popup -->
-              <button type="button" onclick="fecharPopupBanner()" class="estiloBotao">Cancelar</button>
-
-          </div>
 
       </div>
     </div>

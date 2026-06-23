@@ -18,9 +18,9 @@ function abrirPopupNoticia(){
 }
 
 window.fecharPopupNoticia = function () {
-    const popup = document.getElementById("popupNoticia");
     const form = document.getElementById("formNoticia");
     const preview = document.getElementById("preview");
+    const popup = document.getElementById("popupNoticia");
 
     if (form) form.reset();
 
@@ -29,10 +29,16 @@ window.fecharPopupNoticia = function () {
         preview.style.display = "none";
     }
 
-    imagemCortada = null;
-
     if (popup) popup.style.display = "none";
 };
+
+function abrirPopupBanner(){
+    document.getElementById("popupBanner").style.display = "flex";
+}
+
+function fecharPopupNoticia(){
+    document.getElementById("popupBanner").style.display = "none";
+}
 
 // PREVIEW DE IMAGEM DE CAPA
 
@@ -107,85 +113,60 @@ function confirmarCorte() {
 
 async function publicarNoticia() {
 
-    const titulo = document.querySelector('[name="titulo"]').value;
-    const conteudo = document.querySelector('[name="conteudo"]').value;
+    const titulo =
+        document.querySelector(
+            '[name="titulo"]'
+        ).value
 
-    if (!titulo || !conteudo) {
-        alert("Preencha todos os campos");
-        return;
-    }
+    const conteudo =
+        document.querySelector(
+            '[name="conteudo"]'
+        ).value
 
-    if (!imagemCortada) {
-        alert("Selecione uma imagem");
-        return;
-    }
+    const imagem = imagemCortada
 
-    const admin = JSON.parse(localStorage.getItem("admin"));
+    const admin =
+        JSON.parse(
+            localStorage.getItem("admin")
+        )
 
-    const formData = new FormData();
+    const formData = new FormData()
 
-    formData.append("titulo", titulo);
-    formData.append("conteudo", conteudo);
-    formData.append("admin_id", admin.id);
+    formData.append(
+        "titulo",
+        titulo
+    )
 
-    formData.append("imagem", imagemCortada, "capa.jpg");
+    formData.append(
+        "conteudo",
+        conteudo
+    )
 
-    const resposta = await fetch("http://localhost:3000/noticias", {
-        method: "POST",
-        body: formData
-    });
+    formData.append(
+        "admin_id",
+        admin.id
+    )
 
-    const dados = await resposta.json();
+    formData.append(
+    "imagem",
+    imagem,
+    "capa.jpg"
+    )
 
-    alert(dados.mensagem);
+    const resposta =
+        await fetch(
+            "http://localhost:3000/noticias",
+            {
+                method: "POST",
+                body: formData
+            }
+        )
 
-    fecharPopupNoticia();
+    const dados =
+        await resposta.json()
+
+    alert(dados.mensagem)
 }
-
-// POPUP BANNER
-
-function abrirPopupBanner() {
-    document.getElementById("popupBanner").style.display = "flex";
-}
-
-window.fecharPopupBanner = function () {
-    const popup = document.getElementById("popupBanner");
-    const form = document.getElementById("formBanner");
-    const preview = document.getElementById("previewBanner");
-
-    if (form) form.reset();
-
-    if (preview) {
-        preview.src = "";
-        preview.style.display = "none";
-    }
-
-    imagemBanner = null;
-
-    if (popup) popup.style.display = "none";
-};
-
-let imagemBanner = null;
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const inputBanner = document.getElementById("imagemBanner");
-    const previewBanner = document.getElementById("previewBanner");
-
-    if (inputBanner) {
-        inputBanner.addEventListener("change", function () {
-
-            const arquivo = this.files[0];
-
-            if (!arquivo) return;
-
-            imagemBanner = arquivo;
-
-            previewBanner.src = URL.createObjectURL(arquivo);
-            previewBanner.style.display = "block";
-        });
-    }
-});
 
 function logoutAdmin() {
     localStorage.removeItem("admin")

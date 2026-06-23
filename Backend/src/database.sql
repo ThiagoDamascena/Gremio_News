@@ -68,12 +68,6 @@ CREATE TABLE banners (
     ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Adcição na tabela banners
-
-ALTER TABLE banners
-ADD COLUMN posicao TINYINT UNSIGNED NOT NULL,
-ADD UNIQUE KEY unique_posicao (posicao);
-
 -- Tabela banco_de_resumos (escritos por alunos)
 
 CREATE TABLE banco_de_resumos (
