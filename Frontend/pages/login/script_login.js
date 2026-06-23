@@ -129,7 +129,7 @@ document.getElementById("aluno-form-element").addEventListener("submit", async e
         )
 
         window.location.href =
-            "../Main_Page/main_inicio.html"
+            "/pages/home/index_home.html"
     }
     else{
 

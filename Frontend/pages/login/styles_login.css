@@ -10,7 +10,7 @@ html, body {
     height: 100vh;
     justify-items: center; 
     align-items: center;
-    background: url(/Frontend/assets/Pictures/campus.jpeg);
+    background: url(/assets/Pictures/campus.jpeg);
     background-size: cover;
     background-position: center;
 }

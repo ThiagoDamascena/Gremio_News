@@ -8,7 +8,7 @@ const admin =
 if(!admin){
 
     window.location.href =
-        "../login/index_login.html"
+        "pages/login/index_login.html"
 }
 
 // POPUP NOTÍCIA
