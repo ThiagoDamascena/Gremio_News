@@ -18,9 +18,9 @@ function abrirPopupNoticia(){
 }
 
 window.fecharPopupNoticia = function () {
+    const popup = document.getElementById("popupNoticia");
     const form = document.getElementById("formNoticia");
     const preview = document.getElementById("preview");
-    const popup = document.getElementById("popupNoticia");
 
     if (form) form.reset();
 
@@ -28,6 +28,8 @@ window.fecharPopupNoticia = function () {
         preview.src = "";
         preview.style.display = "none";
     }
+
+    imagemCortada = null;
 
     if (popup) popup.style.display = "none";
 };
@@ -113,60 +115,75 @@ function confirmarCorte() {
 
 async function publicarNoticia() {
 
-    const titulo =
-        document.querySelector(
-            '[name="titulo"]'
-        ).value
+    const titulo = document.querySelector('[name="titulo"]').value;
+    const conteudo = document.querySelector('[name="conteudo"]').value;
 
-    const conteudo =
-        document.querySelector(
-            '[name="conteudo"]'
-        ).value
+    if (!titulo || !conteudo) {
+        alert("Preencha todos os campos");
+        return;
+    }
 
-    const imagem = imagemCortada
+    if (!imagemCortada) {
+        alert("Selecione uma imagem");
+        return;
+    }
 
-    const admin =
-        JSON.parse(
-            localStorage.getItem("admin")
-        )
+    const admin = JSON.parse(localStorage.getItem("admin"));
 
-    const formData = new FormData()
+    const formData = new FormData();
 
-    formData.append(
-        "titulo",
-        titulo
-    )
+    formData.append("titulo", titulo);
+    formData.append("conteudo", conteudo);
+    formData.append("admin_id", admin.id);
 
-    formData.append(
-        "conteudo",
-        conteudo
-    )
+    formData.append("imagem", imagemCortada, "capa.jpg");
 
-    formData.append(
-        "admin_id",
-        admin.id
-    )
+    const resposta = await fetch("http://localhost:3000/noticias", {
+        method: "POST",
+        body: formData
+    });
 
-    formData.append(
-    "imagem",
-    imagem,
-    "capa.jpg"
-    )
+    const dados = await resposta.json();
 
-    const resposta =
-        await fetch(
-            "http://localhost:3000/noticias",
-            {
-                method: "POST",
-                body: formData
-            }
-        )
+    alert(dados.mensagem);
 
-    const dados =
-        await resposta.json()
-
-    alert(dados.mensagem)
+    fecharPopupNoticia();
 }
+
+function abrirPopupBanner(){
+    document.getElementById("popupBanner").style.display = "flex";
+}
+
+window.fecharPopupBanner = function () {
+    const popup = document.getElementById("popupBanner");
+    const form = document.getElementById("formBanner");
+    const preview = document.getElementById("previewBanner");
+
+    if (form) form.reset();
+
+    if (preview) {
+        preview.src = "";
+        preview.style.display = "none";
+    }
+
+    imagemCortada = null;
+
+    if (popup) popup.style.display = "none";
+};
+
+// PREVIEW DE IMAGEM DE CAPA
+
+const imagemBanner = document.getElementById("imagemBanner");
+const previewBanner = document.getElementById("previewBanner");
+
+imagemBanner.addEventListener("change", function() {
+  const arquivo = this.files[0];
+
+  if (arquivo) {
+    previewBanner.src = URL.createObjectURL(arquivo);
+    previewBanner.style.display = "block";
+  }
+});
 
 function logoutAdmin() {
     localStorage.removeItem("admin")
