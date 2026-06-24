@@ -108,6 +108,26 @@ async function carregarNoticias() {
     }
 }
 
+
+const btnTopo = document.getElementById("btnTopo");
+
+// mostra o botão quando rolar a página
+window.onscroll = function () {
+  if (document.documentElement.scrollTop > 300) {
+    btnTopo.style.display = "block";
+  } else {
+    btnTopo.style.display = "none";
+  }
+};
+
+// função para voltar ao topo
+function voltarAoTopo() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
 // EXECUTA A FUNÇÃO QUANDO A PÁGINA TERMINAR DE CARREGAR
 document.addEventListener(
     "DOMContentLoaded",

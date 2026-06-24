@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.body{
     overflow-x: hidden;
 }
 
@@ -15,7 +18,7 @@ body{
 .conteiner{
     display: grid;  
     min-height: 100vh;
-    grid-template-rows: 20vh auto 30vh;
+    grid-template-rows: auto;
     grid-template-areas:
     "topo"
     "main"
@@ -137,12 +140,14 @@ img.redirecionamento{
 .main{
     display: grid;
     grid-area: main;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
     grid-template-areas:
     "caixaLastnews"
     "tituloNoticia"
     "caixaNoticia"
-    "caixaResumo"
+    "caixanot"
+    "caixa_linha"
+    "caixaOuvidoria"
     ;
 }
 
@@ -182,7 +187,7 @@ img.redirecionamento{
     grid-template-areas:
     "noticia1 noticia2 noticia3"
     ;
-    width: 90%;
+    width: 80%;
     justify-self: center;
     align-items: center;
     gap: 2rem;
@@ -219,11 +224,6 @@ img.redirecionamento{
     margin-bottom: 15px;
 }
 
-/* Posicionamento de cada notícia */
-.noticia1{
-    grid-area: noticia1;
-}
-
 /* Imagens das notícias */
 .fotoNoticia1, .fotoNoticia2, .fotoNoticia3{
     width: 100%;
@@ -253,6 +253,11 @@ img.redirecionamento{
     line-height: 1.5;
 }
 
+/* Posicionamento de cada notícia */
+.noticia1{
+    grid-area: noticia1;
+}
+
 .noticia2{
     grid-area: noticia2;
 }
@@ -261,24 +266,93 @@ img.redirecionamento{
     grid-area: noticia3;
 }
 
-/* Área do resumo geral */
-.caixaResumo{
-    grid-area: caixaResumo;
-    width: 100%;
-    height: clamp(250px, 40vh, 500px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.caixanot{
+    grid-area: caixanot;
 }
 
-/* Card de resumo */
-.previewResumo{
+.maisnoticias{
+    display: grid;
+    justify-content: end;
+
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-right: 10.8%;
+
+    color: black;
+}
+.caixaLinha{
+    grid-area: caixa_linha;
+    justify-self: center;
+    width: 79%;
+}
+
+.linhaHorizontalNoticias{
+    margin-bottom: 1vh;
+    
+    background-color: rgb(0, 0, 0);
+    color: transparent;
+
+    height: 0.1vh;
+    border-radius: 1vh;
+}
+
+/* Área da Ouvidoria */
+.caixaOuvidoria{
+    grid-area: caixaOuvidoria;
+
+    width: 100%;
+    height: fit-content;
+
+    display: grid;
+    justify-items: center;
+
+    margin-top: 3vh;
+}
+
+/* Card de Ouvidoria */
+.previewOuvidoria{
     background-color: rgb(255, 255, 255);
-    height: 35vh;
     border-radius: 1vw;
     border: solid 0.1rem rgb(135, 135, 135);
     box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
-    width: 90%; 
+    width: 80%;
+}
+
+.conteudoOuvidoria{
+    display: grid;
+    grid-template-areas:
+    "ouvidoriaVideo ouvidoriaTexto"
+    ;
+}
+
+.ouvidoriaVideo{
+    grid-area: ouvidoriaVideo;
+    display: grid;
+    align-items: center;
+}
+.ouvidoriaVideo video{
+    border-radius: 1vw 0 0 1vw;
+}
+
+.ouvidoriaTexto{
+    grid-area: ouvidoriaTexto;
+    font-family: "Rationale", sans-serif;
+
+    width: 80%;
+
+    display: grid;
+    justify-self: center;
+    text-align: center;
+
+    align-content: center;
+}
+
+.espaçoEntrehs{
+    margin-bottom: 4vh;
+}
+
+.formsOuvidoria{
+    color: black;
 }
 
 /* Rodapé */
@@ -286,8 +360,106 @@ img.redirecionamento{
     grid-area: rodape;
     display: grid;
     background-color: rgb(29, 29, 29);
+    margin-top: 5vh;
+    
+}
+
+.containerRodape{
+    width: 80%;
+    height: auto;
+    overflow-y: hidden;
+
     color: white;
-    margin-top: 1vh;
+
+    justify-self: center;
+
+    font-family: "Rationale", sans-serif;
+}
+
+.margemTopo{
+    margin-top: 5vh;
+}
+
+.margemTopofaq{
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+.accordion-item{
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.accordion-button{
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+    color: white;
+}
+
+.linhaHorizontalRodape{
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    
+    background-color: rgb(193, 193, 193);
+    color: transparent;
+    
+    height: 0.15vh;
+    width: 100%;
+
+    border-radius: 1vh;
+}
+
+.fimRodape{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "copyright botaoSubir"
+    ;
+}
+
+.copy{
+    grid-area: copyright;
+}
+
+.btn-subir{
+    grid-area: botaoSubir;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+    background-color: transparent;
+    width: fit-content;
+    justify-self: end;
+}
+
+.btn-subir:hover {
+  background-color: rgba(255, 255, 255, 0.167);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 550px) {
+    .fimRodape{
+        grid-template-areas:
+        "copyright"
+        "botaoSubir"
+        ;
+    }
+}   
+
+.margem{
+    margin-top: 2vh;
+    color: rgb(29, 29, 29);
 }
 
 /* ========Carrosel========== */
@@ -315,20 +487,3 @@ img.redirecionamento{
     padding: 0;
 }
 
-.linhaHorizontal{
-    height: 0.3vh;
-    width: 89%;
-    background-color: black;
-    color: black;
-    border-radius: 50px;
-
-    display: grid;
-    justify-self: center;
-}
-
-.maisnoticias{
-    display: grid;
-    justify-self: end;
-    margin-right: 5.5%;
-    margin-top: 0.3%;
-}

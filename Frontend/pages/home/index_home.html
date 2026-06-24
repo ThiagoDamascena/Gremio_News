@@ -9,7 +9,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="/pages/home/styles_home.css">
     <script src="/pages/home/script_home.js" defer></script>
-    <!-- <script src="/pages/login/script_login.js" defer></script> -->
+
+    <!-- href da fonte do rodape -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rationale&display=swap" rel="stylesheet"> 
+
 </head>
 <body>
 
@@ -144,20 +149,133 @@
                 </div>
 
             </div>
-
-            <!-- Linha que Divide as notícias -->
-            <div class="linhaHorizontal"> </div>
-
+        
+        <div class="caixanot">
             <a href="/pages/news/index_news.html" class="maisnoticias">ACESSE MAIS NOTÍCIAS</a>
+        </div>
+
+        <div class="caixaLinha">
+            <!-- Linha que Divide as notícias -->
+            <div class="linhaHorizontalNoticias">linha</div>
+        </div>
+
             
-            <!-- Área para resumo ou destaque -->
-             <!-- Adiado para 2ª Versão do Site -->
-            <!-- <div class="caixaResumo">
-                <div class="previewResumo">resumo</div>
-            </div> -->
+            <!-- Área para da Ouvidoria -->
+             
+            <div class="caixaOuvidoria">
+                <div class="previewOuvidoria">
+                    <div class="conteudoOuvidoria">
+                        <div class="ouvidoriaVideo">
+                             <video controls>
+                                <source src="/assets/Videos/teste.mp4" type="video/mp4">
+                             </video>
+                        </div>
+
+                        <div class="ouvidoriaTexto">
+
+                            <p>
+                                <h1 class="espaçoEntrehs">Conheça nossa Ouvidoria</h1>
+
+                                <h2>A Ouvidoria do Grêmio Estudantil é um espaço feito para você ser ouvido de verdade. <br> <br>
+                                    Aqui, suas ideias, sugestões, críticas e elogios são sempre bem-vindos e ajudam a
+                                    construir um grêmio mais participativo e próximo dos estudantes. <br><br>
+
+                                    Acesse nosso forms abaixo e deixe-nos lhe ouvir! <br> <br>
+                                    
+                                    <a href="https://forms.gle/dPeHqpbESo2ozuMQ7" class="formsOuvidoria">Ouvidoria do Grêmio Estudantil E.V.A.</a>
+
+                                </h2>
+
+                            </p>
+     
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
 
         </div>
-        <div class="rodape">rodape</div>
+        <div class="rodape">
+            <div class="containerRodape">
+                <h1 class="margemTopo">GRÊMIO ESTUDANTIL E.V.A. - EVOLUÇÃO, VOZ E AÇÃO</h1>
+                <h2>Grêmio Estudantil do IFPE - Campus Paulista</h2>
+
+                <h1 class="margemTopofaq">PERGUNTAS FREQUENTES</h1>
+
+                <div class="accordion" id="faq">
+
+                    <div class="accordion-item">
+
+                        <h1 class="accordion-header">
+                            
+                            <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse"  data-bs-target="#pergunta1">
+                                Como entrar no Grêmio Estudantil?
+                            </button>
+
+                        </h1>
+
+                        <div id="pergunta1" class="accordion-collapse collapse" data-bs-parent="#faq">
+
+                            <div class="accordion-body">
+                                Abrimos vagas conforme a necessidade de pessoal para realizar as atividades, fique ligado nas notícias para saber quando vamos abrir o próximo edital de convocação!
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="accordion-item">
+
+                        <h1 class="accordion-header">
+                            
+                            <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse"  data-bs-target="#pergunta2">
+                                Quando acontecerá o Interclasse?
+                            </button>
+
+                        </h1>
+
+                        <div id="pergunta2" class="accordion-collapse collapse" data-bs-parent="#faq">
+
+                            <div class="accordion-body">
+                                A Primeira Edição dos Jogos Internos do IFPE - Campus Paulista acontecerá no mês de Setembro, estamos trabalhando muito duro para que este seja o melhor evento possível, em breve anunciaremos mais informações!
+                                <br>
+                                <p style="opacity: 0.7;">23/06/2026 - Diretoria Executiva do Grêmio Estudantil E.V.A.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                                
+                <h1 class="margemTopo">CONTATE-NOS</h1>
+                
+                <h2>&#9993; evagremioestudantil@gmail.com</h2>
+
+                <h2>
+                <a href="https://instagram.com/evagremioestudantil" target="_blank" style="text-decoration: none; color: inherit; display: inline-flex; align-items: center; gap: 8px;">
+                    <!-- Desenho do ícone do Instagram -->
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle;">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    @evagremioestudantil
+                </a>
+                </h2>
+
+                <div class="linhaHorizontalRodape">linha pra dividir</div>
+
+                <div class="fimRodape">
+                    <h5 class="copy">Grêmio Estudantil EV.A. - Evolução, Voz e Ação. Todos os direitos reservados.</h5>
+
+                    <button class="btn-subir" id="btnTopo" onclick="voltarAoTopo()"><strong>VOLTAR AO TOPO</strong> &#9650;</button>
+                </div>                
+
+                <div class="margem">espaço do fim da pagina</div>
+
+            </div>
+        </div>
     </div>
 </body>
 
