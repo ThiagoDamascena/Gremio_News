@@ -128,6 +128,20 @@ function voltarAoTopo() {
   });
 }
 
+function abrirSettings(){
+    const popup = document.getElementById("popupSettings");
+    popup.classList.add("open");
+    document.body.classList.add("sidebar-open");
+    document.getElementById("btnOpenSettings").style.display = "none";
+}
+
+function fecharSettings(){
+    const popup = document.getElementById("popupSettings");
+    popup.classList.remove("open");
+    document.body.classList.remove("sidebar-open");
+    document.getElementById("btnOpenSettings").style.display = "inline-flex";
+}
+
 // EXECUTA A FUNÇÃO QUANDO A PÁGINA TERMINAR DE CARREGAR
 document.addEventListener(
     "DOMContentLoaded",

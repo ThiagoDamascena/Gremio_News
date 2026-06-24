@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grêmio News</title>
-    <link rel="icon" type="image/png" href="../../assets/Pictures/favicon.png">
+    <link rel="icon" type="image/png" href="../../assets/Pictures/if2.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="/pages/home/styles_home.css">
@@ -25,42 +25,26 @@
         <div class="top">
 
             <div class="caixaTopo">
-
-                <!-- Área da logo -->
-                <div class="caixaLogo">
-
-                    <!-- Imagem da logo -->
-                    <div> <img src="/assets/Pictures/favicon.png" alt="" class="logo"></div>
-                    
-                    <!-- Texto da logo -->
-                    <div class="textoLogo">Instituto <br> Federal de Pernambuco</div>
+                
+                <div>
+                    <img src="/assets/Pictures/ifpe.png" alt="" class="imgIFPE">
                 </div>
 
-                <!-- Área de pesquisa e atalhos -->
-                <div class="caixaPesquisa">
-                    <a href="/pages/login/index_login.html" class="settings"><button class="settings"></button></a>
+                <div class="utils">
+                    <div class="btn-sets">
+                        <button id="btnOpenSettings" class="btn-settings" onclick="abrirSettings()">
+                            <img src="/assets/Pictures/settings.png" alt="" class="btn-settings">
+                        </button>
 
-                    <!-- Barra de navegação Bootstrap -->
-                    <nav class="navbar bg-body-tertiary">
-                        <div class="container-fluid">
-
-                            <!-- Formulário de pesquisa -->
-                                <form class="d-flex" role="search">
-
-                                    <!-- Campo de pesquisa -->
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-
-                                <!-- Botão de pesquisa -->
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
+                        <div id="popupSettings" class="popupSettings">
+                            <div class="conteudoPopupSettings">
+                                <button id="btnCloseSettings" class="btn-close-popup" onclick="fecharSettings()">Fechar</button>
+                            </div>
                         </div>
-                    </nav>
 
-                    <!-- Link para Instagram -->
-                    <a href="https://www.instagram.com/evagremioestudantil" target="_blank" class="redirecionamento">
-                        <img src="/assets/Pictures/instagram.png" alt="" class="redirecionamento">
-                    </a>
+                    </div>
                 </div>
+
             </div>
 
         </div>

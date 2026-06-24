@@ -33,104 +33,35 @@ body{
 
 /* Caixa central do topo contendo logo e pesquisa */
 .caixaTopo{
-    width: 70%;
-    height: 100%;
+    width: 80%;
+    height: auto;
     justify-self: center;
     grid-template-columns: 1fr 1fr;
     display: grid;
 }
 
-/* Estrutura da logo */
-.caixaLogo{
-    min-height: 80px;
+.imgIFPE{
+    margin: 4vh 0 3vh 0;
+}
+
+.utils{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr 1fr;
 }
 
-/* Imagem da logo */
-.logo{
-    width: 100%;
-    height: 100%;
-    grid-column: 1;
-    background-size: cover;
-    background-position: center;
-    overflow: visible;
-}
-
-/* Texto ao lado da logo */
-.textoLogo{
-    font-size: clamp(1vw, 2vw, 3vw);
-    grid-column: 2;
-    width: auto;
-}
-
-/* Área de pesquisa */
-.caixaPesquisa{
-    display:grid;
-    width: auto;
-    min-height: 80px;
+.btn-sets{
+    display: grid;
     justify-content: end;
-    align-items: center;
-    grid-template-rows: auto auto auto;
-    grid-area:
-    "dropdown"
-    "barraPesquisa"
-    "redirecionamento"
-    ;
-}
-
-/* Campo de busca */
-.barraPesquisa{
-    border-radius: 5px;
-    height: clamp(20px, 3vh, 4.5vh);
-    width: clamp(100px, 20vw, 300px);
-    padding: 10px;
-    margin-right: 10px;
-}
-
-/* Personalização do botão Bootstrap */
-.btn-outline-success{
-    text-align: center;
-    padding: 0;
-    min-width: 70px;
-    background-color: white;
-    color: green;
-}
-
-/* Remove fundo padrão do Bootstrap */
-.bg-body-tertiary{
-    background-color: transparent!important;
-}
-
-/* Ícone de redirecionamento */
-.redirecionamento{
-    display: block;
-    height: 40px;
-    width: 40px;
-    background-size: cover;
-    justify-self: end;
-    margin-right: 10px;
-}
-
-/* Ícone de configurações */
-.settings{
-    display: block;
-    height: 40px;
-    width: 40px;
-    background-size: cover;
-    background-image: url(/assets/Pictures/settings.png);
+    margin-top: 4vh;
     border: none;
-    justify-self: end;
-    margin-right: 10px;
 }
 
-button.settings{
-    margin: 0;
-}
+.btn-settings{
+    height: 3vh;
+    width: auto;
 
-/* Ajuste para imagens com classe redirecionamento */
-img.redirecionamento{
-    margin-right: 0;
+    border: none;
+    border-radius: 5px;
 }
 
 /* ======Caixa Principal===== */
@@ -195,7 +126,7 @@ img.redirecionamento{
 }
 
 /* Responsividade para telas pequenas */
-@media (max-width: 550px) {
+@media (max-width: 650px) {
     .caixaNoticia{
         grid-template-areas:
         "noticia1"
@@ -229,7 +160,7 @@ img.redirecionamento{
     width: 100%;
     height: clamp(150px, 25vh, 400px);
     background-size: contain;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 /* Títulos das notícias */
@@ -316,35 +247,55 @@ img.redirecionamento{
     border: solid 0.1rem rgb(135, 135, 135);
     box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
     width: 80%;
+    justify-self: center;
+    /* padding: 1.5rem; */
 }
 
 .conteudoOuvidoria{
     display: grid;
-    grid-template-areas:
-    "ouvidoriaVideo ouvidoriaTexto"
-    ;
+    /* grid-template-columns: minmax(280px, 1fr) minmax(280px, 1fr); */
+    grid-template-columns: auto minmax(280px, 1fr);
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
 }
 
 .ouvidoriaVideo{
-    grid-area: ouvidoriaVideo;
     display: grid;
     align-items: center;
+    justify-items: center;
+    width: 100%;
 }
 .ouvidoriaVideo video{
-    border-radius: 1vw 0 0 1vw;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 1vw;
 }
 
 .ouvidoriaTexto{
-    grid-area: ouvidoriaTexto;
     font-family: "Rationale", sans-serif;
-
-    width: 80%;
-
-    display: grid;
-    justify-self: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    padding: 0 1.5rem;
+}
 
-    align-content: center;
+@media (max-width: 650px) {
+    .conteudoOuvidoria{
+        grid-template-columns: 1fr;
+    }
+
+    .ouvidoriaVideo video{
+        border-radius: 1vw 1vw 0 0;
+    }
 }
 
 .espaçoEntrehs{
@@ -487,3 +438,53 @@ img.redirecionamento{
     padding: 0;
 }
 
+.popupSettings {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 30vw;
+  max-width: 420px;
+  min-width: 300px;
+  height: 100vh;
+
+  z-index: 999;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 1s ease, opacity 0.3s ease;
+}
+
+.popupSettings.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.conteudoPopupSettings {
+  background: rgb(15, 25, 45);
+
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  color: white;
+
+  text-align: center;
+
+  overflow-y: auto;
+}
+
+body.sidebar-open {
+  overflow-x: hidden;
+}
+
+body.sidebar-open .conteiner {
+  margin-right: min(30vw, 420px);
+  transition: margin-right 0.3s ease;
+}
