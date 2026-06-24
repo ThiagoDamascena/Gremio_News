@@ -38,22 +38,21 @@ body{
     justify-self: center;
     grid-template-columns: 1fr 1fr;
     display: grid;
-}
-
-.imgIFPE{
     margin: 4vh 0 3vh 0;
 }
 
 .utils{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .btn-sets{
-    display: grid;
-    justify-content: end;
-    margin-top: 4vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     border: none;
+    margin-bottom: 1vh;
 }
 
 .btn-settings{
@@ -62,6 +61,63 @@ body{
 
     border: none;
     border-radius: 5px;
+
+    margin-right: 1px;
+}
+
+/* Área de pesquisa */
+
+.container-fluid{
+    width: auto;
+    padding: 0;
+}
+
+.caixaPesquisa{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: auto;
+    gap: 0.75rem;
+}
+
+/* Campo de busca */
+.barraPesquisa{
+    border-radius: 5px;
+    height: clamp(20px, 3vh, 4.5vh);
+    width: clamp(100px, 20vw, 300px);
+    padding: 10px;
+    margin: 0;
+}
+
+/* Personalização do botão Bootstrap */
+.btn-outline-success{
+    text-align: center;
+    padding: 0;
+    min-width: 70px;
+    background-color: white;
+    color: green;
+}
+
+/* Remove fundo padrão do Bootstrap */
+.bg-body-tertiary{
+    background-color: transparent!important;
+}
+
+.redirect{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.gridLOGO{
+    display: grid;
+    align-items: end;
+}
+
+.imgINSTA{
+    height: 3vh;
+    width: auto;
+    margin-right: 2px;
 }
 
 /* ======Caixa Principal===== */

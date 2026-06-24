@@ -26,8 +26,8 @@
 
             <div class="caixaTopo">
                 
-                <div>
-                    <img src="/assets/Pictures/ifpe.png" alt="" class="imgIFPE">
+                <div class="gridLOGO">
+                    <img src="/assets/Pictures/ifpe.png" alt="" class="imgIFPE">                    
                 </div>
 
                 <div class="utils">
@@ -38,11 +38,38 @@
 
                         <div id="popupSettings" class="popupSettings">
                             <div class="conteudoPopupSettings">
+
                                 <button id="btnCloseSettings" class="btn-close-popup" onclick="fecharSettings()">Fechar</button>
+
+                                <button onclick="paginaLogin()">Conta</button>
+
                             </div>
                         </div>
 
                     </div>
+                        
+                    <!-- Barra de navegação Bootstrap -->
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+
+                            <!-- Formulário de pesquisa -->
+                                <form class="d-flex" role="search">
+
+                                    <!-- Campo de pesquisa -->
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+
+                                <!-- Botão de pesquisa -->
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+
+                    <div class="redirect">
+                        <a href="https://instagram.com/evagremioestudantil" target="_blank" rel="noopener noreferrer">
+                            <img src="/assets/Pictures/instagram.png" alt="Instagram" class="imgINSTA">
+                        </a>
+                    </div>
+
                 </div>
 
             </div>

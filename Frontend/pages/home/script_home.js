@@ -142,6 +142,10 @@ function fecharSettings(){
     document.getElementById("btnOpenSettings").style.display = "inline-flex";
 }
 
+function paginaLogin(){
+    window.location.href = "/pages/login/index_login.html"
+}
+
 // EXECUTA A FUNÇÃO QUANDO A PÁGINA TERMINAR DE CARREGAR
 document.addEventListener(
     "DOMContentLoaded",
