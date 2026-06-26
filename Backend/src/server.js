@@ -267,19 +267,24 @@ app.get("/noticias", (req, res) => {
         FROM noticias
         ORDER BY data_publicacao DESC
         LIMIT 3
-    `
+    `;
 
     db.query(sql, (err, result) => {
 
-        if(err){
+        if (err) {
+            console.log("🔥 ERRO MYSQL COMPLETO:");
+            console.log(err);
+
             return res.status(500).json({
-                erro: "Erro ao buscar notícias"
-            })
+                erro: err.message,
+                code: err.code,
+                sqlMessage: err.sqlMessage
+            });
         }
 
-        res.json(result)
-    })
-})
+        res.json(result);
+    });
+});
 
 app.listen(3000, () => {
     console.log("Servidor rodando")

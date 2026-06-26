@@ -7,7 +7,7 @@ services:
       MARIADB_ROOT_PASSWORD: 190326
       MARIADB_DATABASE: gremio_estudantil
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
