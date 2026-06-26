@@ -32,3 +32,11 @@ A página de Admin é onde eles poderão gerenciar os conteúdos do site.
 ## Contato✉️
 Para enviar suas sugestões e reclamações contate-nos por meio do email:  
 evagremioestudantil@gmail.com
+
+## Como ligar o Server?
+Para iniciar o servidor coloque o seguinte comando no terminal para iniciar o servirdor docker:
+docker-compose up -build
+ou
+docker-compose up -d (para rodar em background e deixar o terminal livre)
+OBS: Em versões mais recentes do docker é possível rodar o comando sem o ifem, ficando da seguinte forma:
+docker compose up (modo que queira rodar: -d, -build, ou outro)
