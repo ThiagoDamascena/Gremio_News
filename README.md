@@ -38,9 +38,16 @@ Para iniciar o servidor coloque o seguinte comando no terminal para iniciar o se
 docker-compose up -build
 ou
 docker-compose up -d (para rodar em background e deixar o terminal livre)
+
 OBS: Em versões mais recentes do docker é possível rodar o comando sem o ifem, ficando da seguinte forma:
 docker compose up (modo que queira rodar: -d, -build, ou outro)
 
+Para desligar o servidor digite o seguinte comando no terminal:
+docker-compose down -v
+ou
+docker compose down -v (para versões mais recentes)
+
+## Como acessar o Site?
 Para acessar a página inicial do site acesse:
 http://localhost:3000/
 
@@ -49,3 +56,4 @@ http://localhost:3000/login
 
 Para entrar direto na página de admin:
 http://localhost:3000/admin
+
