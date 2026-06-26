@@ -27,6 +27,7 @@ services:
       DB_NAME: gremio_estudantil
     volumes:
       - ./Backend:/app
+      - /app/node_modules
       - ./Frontend:/Frontend
 
 volumes:
