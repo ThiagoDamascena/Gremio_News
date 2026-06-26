@@ -171,36 +171,55 @@ body{
     background-color: rgb(240, 240, 240);
     grid-area: caixaNoticia;
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     grid-template-areas:
     "noticia1 noticia2 noticia3"
     ;
+    /* width: min(90%, 1200px); */
     width: 80%;
     justify-self: center;
-    align-items: center;
+    align-items: start;
     gap: 2rem;
     overflow: visible;
+}
+
+/* Responsividade para telas médias */
+@media (max-width: 900px) {
+    .caixaNoticia{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+        "noticia1 noticia2"
+        "noticia3 noticia3"
+        ;
+    }
 }
 
 /* Responsividade para telas pequenas */
 @media (max-width: 650px) {
     .caixaNoticia{
+        grid-template-columns: 1fr;
         grid-template-areas:
         "noticia1"
         "noticia2"
         "noticia3"
         ;
+        gap: 1.2rem;
     }
 }
 
 /* Estilo dos cards de notícias */
 .noticia1, .noticia2, .noticia3{
     background-color: rgb(255, 255, 255);
-    height: clamp(250px, 40vh, 500px);
+    min-height: clamp(280px, 42vh, 460px);
+    height: auto;
     border-radius: 1vw;
     border: solid 0.1rem rgb(135, 135, 135);
     margin-top: 1rem;
     margin-bottom: 1rem;
     box-shadow: 5px 5px 1px 0px rgba(80, 120, 185, 0.820);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .dataNoticia1, .dataNoticia2, .dataNoticia3 {
@@ -214,9 +233,12 @@ body{
 /* Imagens das notícias */
 .fotoNoticia1, .fotoNoticia2, .fotoNoticia3{
     width: 100%;
-    height: clamp(150px, 25vh, 400px);
-    background-size: contain;
+    height: clamp(150px, 25vh, 240px);
+    background-size: cover;
+    background-position: center;
     border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 /* Títulos das notícias */
@@ -238,6 +260,14 @@ body{
     text-align: center;
     padding: 0 1.2rem 1rem;
     line-height: 1.5;
+    margin-top: 0.6rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 /* Posicionamento de cada notícia */
