@@ -40,3 +40,12 @@ ou
 docker-compose up -d (para rodar em background e deixar o terminal livre)
 OBS: Em versões mais recentes do docker é possível rodar o comando sem o ifem, ficando da seguinte forma:
 docker compose up (modo que queira rodar: -d, -build, ou outro)
+
+Para acessar a página inicial do site acesse:
+http://localhost:3000/
+
+Para entrar direto na página de login:
+http://localhost:3000/login
+
+Para entrar direto na página de admin:
+http://localhost:3000/admin
