@@ -1,4 +1,5 @@
 const mysql = require("mysql2");
+require("dotenv").config();
 
 function connectDB() {
   const db = mysql.createConnection({
@@ -11,8 +12,9 @@ function connectDB() {
 
   db.connect((err) => {
     if (err) {
+      console.log(err);
       console.log("Erro no DB, tentando de novo...");
-      setTimeout(connectDB, 3000);
+      setTimeout(connectDB,3000);
     } else {
       console.log("Conectado no MySQL!");
     }

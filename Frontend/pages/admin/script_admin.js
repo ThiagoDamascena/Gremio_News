@@ -187,5 +187,5 @@ imagemBanner.addEventListener("change", function() {
 
 function logoutAdmin() {
     localStorage.removeItem("admin")
-    window.location.href = "../login/index_login.html"
+    window.location.href = "../admin/index_admin.html"
 }

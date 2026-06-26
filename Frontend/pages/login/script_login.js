@@ -73,8 +73,6 @@ document.getElementById("admin-form-element").addEventListener("submit", async e
     const matricula = document.getElementById("admin-matricula").value.trim()
     const senha = document.getElementById("admin-senha").value.trim()
 
-    console.log({ matricula, senha })
-
     const response = await fetch("http://localhost:3000/admin-login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -2,7 +2,6 @@ const express = require("express")
 const path = require("path")
 const cors = require("cors")
 const multer = require("multer")
-
 const db = require("./database")
 
 const app = express();
@@ -265,8 +264,7 @@ app.get("/noticias", (req, res) => {
     const sql = `
         SELECT *
         FROM noticias
-        ORDER BY data_publicacao DESC
-        LIMIT 3
+        ORDER BY data_publicacao DESC  
     `
 
     db.query(sql, (err, result) => {
