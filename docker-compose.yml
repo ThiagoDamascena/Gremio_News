@@ -6,11 +6,15 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: "190326"
       MARIADB_DATABASE: gremio_estudantil
+      MARIADB_USER: "eva_admin"
+      MARIADB_PASSWORD: "190326"
+      MYSQL_ROOT_HOST: "%"
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
       test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-uroot", "-p190326"]
       interval: 5s
@@ -28,7 +32,7 @@ services:
         condition: service_healthy
     environment:
       DB_HOST: db
-      DB_USER: root
+      DB_USER: eva_admin
       DB_PASSWORD: 190326
       DB_NAME: gremio_estudantil
     volumes:
