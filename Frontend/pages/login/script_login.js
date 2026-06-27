@@ -87,7 +87,7 @@ document.getElementById("admin-form-element").addEventListener("submit", async e
     }
 
     localStorage.setItem("admin", JSON.stringify(data.admin))
-    window.location.href = "../admin/index_admin.html"
+    window.location.href = "/admin"
 })
 
 // LOGIN ALUNO
@@ -127,7 +127,7 @@ document.getElementById("aluno-form-element").addEventListener("submit", async e
         )
 
         window.location.href =
-            "/pages/home/index_home.html"
+            "/"
     }
     else{
 

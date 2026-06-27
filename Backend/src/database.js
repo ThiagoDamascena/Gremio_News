@@ -1,26 +1,19 @@
-const mysql = require("mysql2");
-require("dotenv").config();
+const mysql = require("mysql2/promise");
+const path = require("path");
+const dotenv = require("dotenv");
 
-function connectDB() {
-  const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    port: process.env.DB_PORT || 3306
-  });
+dotenv.config({ path: path.resolve(__dirname, "..", "dot.env") });
 
-  db.connect((err) => {
-    if (err) {
-      console.log(err);
-      console.log("Erro no DB, tentando de novo...");
-      setTimeout(connectDB,3000);
-    } else {
-      console.log("Conectado no MySQL!");
-    }
-  });
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: Number(process.env.DB_PORT || 3306),
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  connectTimeout: 10000
+});
 
-  return db;
-}
-
-module.exports = connectDB();
+module.exports = pool;

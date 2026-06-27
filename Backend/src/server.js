@@ -14,7 +14,7 @@ app.use(cors({
 
 app.use(express.json())
 
-const FRONTEND = path.resolve("/Frontend");
+const FRONTEND = path.resolve(__dirname, "..", "..", "Frontend");
 
 app.use(express.static(FRONTEND));
 
@@ -64,7 +64,7 @@ app.use(
     )
 )
 
-app.post("/register", (req, res) => {
+app.post("/register", async (req, res) => {
 
     const {
         nome,
@@ -73,109 +73,96 @@ app.post("/register", (req, res) => {
         senha
     } = req.body
 
-    const sql = `
-        INSERT INTO aluno
-        (nome, matricula, email, senha)
-        VALUES (?, ?, ?, ?)
-    `
+    try {
+        await db.query(
+            `
+                INSERT INTO aluno
+                (nome, matricula, email, senha)
+                VALUES (?, ?, ?, ?)
+            `,
+            [nome, matricula, email, senha]
+        )
 
-    db.query(
-        sql,
-        [nome, matricula, email, senha],
+        res.json({
+            mensagem: "Usuário cadastrado"
+        })
+    } catch (err) {
+        console.log(err)
 
-        (err, result) => {
-
-            if(err){
-                console.log(err)
-
-                return res
-                .status(500)
-                .json({
-                    erro: "Erro ao cadastrar"
-                })
-            }
-
-            res.json({
-                mensagem: "Usuário cadastrado"
+        return res
+            .status(500)
+            .json({
+                erro: "Erro ao cadastrar"
             })
-        }
-    )
+    }
 })
 
 // LOGIN ADMIN
 
-app.post("/admin-login", (req, res) => {
-
+app.post("/admin-login", async (req, res) => {
     const { matricula, senha } = req.body
 
-    const sql = `
-        SELECT *
-        FROM administrador
-        WHERE matricula = ?
-    `
+    try {
+        const [result] = await db.query(
+            `
+                SELECT *
+                FROM administrador
+                WHERE matricula = ?
+            `,
+            [matricula]
+        )
 
-    db.query(
-        sql,
-        [matricula],
-        (err, result) => {
-
-            if(err){
-                return res
-                .status(500)
-                .json({
-                    erro: "Erro no servidor"
-                })
-            }
-
-            if(result.length === 0){
-                return res
+        if (result.length === 0) {
+            return res
                 .status(401)
                 .json({
                     erro: "Administrador não encontrado"
                 })
-            }
+        }
 
-            const admin = result[0]
+        const admin = result[0]
 
-            if(admin.senha !== senha){
-                return res
+        if (admin.senha !== senha) {
+            return res
                 .status(401)
                 .json({
                     erro: "Senha incorreta"
                 })
-            }
-
-            res.json({
-                mensagem: "Login realizado",
-                admin: {
-                    id: admin.id,
-                    nome: admin.nome,
-                    matricula: admin.matricula
-                }
-            })
         }
-    )
+
+        res.json({
+            mensagem: "Login realizado",
+            admin: {
+                id: admin.id,
+                nome: admin.nome,
+                matricula: admin.matricula
+            }
+        })
+    } catch (err) {
+        console.error(err)
+        return res
+            .status(500)
+            .json({
+                erro: "Erro no servidor"
+            })
+    }
 })
 
 // LOGIN ALUNO
 
-app.post("/login-form", (req, res) => {
+app.post("/login-form", async (req, res) => {
 
     const { matricula, senha } = req.body;
 
-    const sql = `
-        SELECT *
-        FROM aluno
-        WHERE matricula = ?
-    `;
-
-    db.query(sql, [matricula], (err, result) => {
-
-        if (err) {
-            return res.status(500).json({
-                erro: "Erro no servidor"
-            });
-        }
+    try {
+        const [result] = await db.query(
+            `
+                SELECT *
+                FROM aluno
+                WHERE matricula = ?
+            `,
+            [matricula]
+        );
 
         if (result.length === 0) {
             return res.status(401).json({
@@ -199,14 +186,18 @@ app.post("/login-form", (req, res) => {
                 matricula: aluno.matricula
             }
         });
-
-    });
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({
+            erro: "Erro no servidor"
+        });
+    }
 });
 
 app.post(
     "/noticias",
     upload.single("imagem"),
-    (req, res) => {
+    async (req, res) => {
 
         const {
             titulo,
@@ -219,65 +210,57 @@ app.post(
             ? req.file.filename
             : null
 
-        const sql = `
-            INSERT INTO noticias
-            (
-                titulo,
-                conteudo,
-                imagem,
-                admin_id
+        try {
+            await db.query(
+                `
+                    INSERT INTO noticias
+                    (
+                        titulo,
+                        conteudo,
+                        imagem,
+                        admin_id
+                    )
+                    VALUES (?, ?, ?, ?)
+                `,
+                [
+                    titulo,
+                    conteudo,
+                    imagem,
+                    admin_id
+                ]
             )
-            VALUES (?, ?, ?, ?)
-        `
 
-        db.query(
-            sql,
-            [
-                titulo,
-                conteudo,
-                imagem,
-                admin_id
-            ],
-            (err, result) => {
+            res.json({
+                mensagem: "Notícia publicada"
+            })
+        } catch (err) {
+            console.log(err)
 
-                if(err){
-
-                    console.log(err)
-
-                    return res.status(500).json({
-                        erro: "Erro ao publicar notícia"
-                    })
-                }
-
-                res.json({
-                    mensagem: "Notícia publicada"
-                })
-            }
-        )
+            return res.status(500).json({
+                erro: "Erro ao publicar notícia"
+            })
+        }
     }
 )
 
 
 
-app.get("/noticias", (req, res) => {
+app.get("/noticias", async (req, res) => {
 
     const sql = `
         SELECT *
         FROM noticias
-        ORDER BY data_publicacao DESC  
-    `
+        ORDER BY data_publicacao DESC
+    `;
 
-    db.query(sql, (err, result) => {
-
-        if(err){
-            return res.status(500).json({
-                erro: "Erro ao buscar notícias"
-            })
-        }
-
-        res.json(result)
-    })
-})
+    try {
+        const [rows] = await db.query(sql);
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ erro: "Erro ao buscar notícias" });
+    }
+});
 
 app.listen(3000, () => {
     console.log("Servidor rodando")
