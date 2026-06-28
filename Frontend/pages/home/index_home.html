@@ -27,7 +27,7 @@
             <div class="caixaTopo">
                 
                 <div class="gridLOGO">
-                    <img src="/assets/Pictures/ifpe.png" alt="" class="imgIFPE">                    
+                    <a href="/"><img src="/assets/Pictures/ifpe.png" alt="" class="imgIFPE">   </a>    
                 </div>
 
                 <div class="utils">
@@ -86,7 +86,7 @@
 
                     <!-- Primeiro slide -->
                     <div class="carousel-item active">
-                        <img src="/assets/Pictures/abono.png" class="d-block w-100" alt="...">
+                        <img src="/assets/Pictures/logogremio.png" class="d-block w-100" alt="...">
                     </div>
 
                     <!-- Segundo slide -->
@@ -162,7 +162,16 @@
             </div>
         
         <div class="caixanot">
-            <button onclick="avacarnoticia()">avançar</button>
+            <div class="caixaBtnNot">
+                <button onclick="voltarNoticia()" class="btn-not">
+                    <img src="/assets/Pictures/voltar.png" alt="">
+                </button>
+
+                <button onclick="avancarNoticia()" class="btn-not">
+                    <img src="/assets/Pictures/avancar.png" alt="">
+                </button>
+            </div>
+            
             <a href="/pages/news/index_news.html" class="maisnoticias">ACESSE MAIS NOTÍCIAS</a>
         </div>
 
@@ -207,6 +216,7 @@
             </div>
 
         </div>
+        
         <div class="rodape">
             <div class="containerRodape">
                 <h1 class="margemTopo">GRÊMIO ESTUDANTIL E.V.A. - EVOLUÇÃO, VOZ E AÇÃO</h1>

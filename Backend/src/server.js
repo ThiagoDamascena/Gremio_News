@@ -30,6 +30,9 @@ app.get("/admin", (req, res) => {
   res.sendFile(path.join(FRONTEND, "pages/admin/index_admin.html"));
 });
 
+app.get("/news", (req, res) => {
+  res.sendFile(path.join(FRONTEND, "pages/news/index_news.html"));
+});
 
 
 const storage = multer.diskStorage({

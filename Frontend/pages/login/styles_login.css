@@ -213,3 +213,19 @@ html, body {
     text-align: center;
     margin-bottom: 20px;
 }
+
+.btn-voltar{
+    height: 3.3vh;
+    width: auto;
+    border-radius: 10px;
+}
+
+.topo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.botaoVoltar{
+    display: grid;
+    justify-content: end;
+}
