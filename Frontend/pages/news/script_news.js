@@ -30,3 +30,52 @@ function fecharSettings(){
     document.body.classList.remove("sidebar-open");
     document.getElementById("btnOpenSettings").style.display = "inline-flex";
 }
+
+const template = document.getElementById("template-card");
+
+async function carregarNoticias() {
+    const res = await fetch('/noticias');
+    const noticias = await res.json();
+
+    const container = document.getElementById('containerNot');
+
+    container.innerHTML = '';
+
+    noticias.forEach(noticia => {
+
+        const card = document.createElement('div');
+
+        card.className = 'cardNoticia';
+
+        card.innerHTML = `
+            <img
+                src="/uploads/${noticia.imagem}"
+                class="fotoNoticia"
+                alt="${noticia.titulo}"
+            >
+
+            <div class="tituloNoticia">
+                ${noticia.titulo}
+            </div>
+
+            <div class="dataNoticia">
+                ${new Date(noticia.data_publicacao)
+                    .toLocaleDateString('pt-BR',
+                      {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                      }
+                    )}
+            </div>
+
+            <div class="conteudoNoticia">
+                ${noticia.conteudo}
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+carregarNoticias();
