@@ -50,6 +50,19 @@ function exibirNoticias(){
             `imgNoticia${i+1}`
         ).src =
             `http://localhost:3000/uploads/${noticia.imagem}`
+
+        // Redirecionamento ao clicar no card
+        document.querySelector(
+            `.noticia${i+1}`
+        ).onclick = () => {
+            window.location.href =
+                `/noticias/${noticia.id}`
+        }
+
+        document.querySelector(
+            `.noticia${i+1}`
+        ).style.cursor = "pointer"
+        
     }
 }
 

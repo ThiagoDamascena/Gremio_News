@@ -421,10 +421,11 @@ body{
 
 .maisnoticias{
     display: grid;
-    justify-content: end;
+    justify-self: end;
     color: black;
     margin-right: 1%;
     height: 3.3vh;
+    width: fit-content;
 }
 .caixaLinha{
     grid-area: caixa_linha;
