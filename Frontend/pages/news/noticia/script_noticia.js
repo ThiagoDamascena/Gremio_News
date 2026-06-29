@@ -18,17 +18,21 @@ function voltarAoTopo() {
 }
 
 function abrirSettings(){
-    const popup = document.getElementById("popupSettings");
-    popup.classList.add("open");
-    document.body.classList.add("sidebar-open");
-    document.getElementById("btnOpenSettings").style.display = "none";
+
+  const popup = document.getElementById("popupSettings");
+  popup.classList.add("open");
+  document.body.classList.add("sidebar-open");
+  document.getElementById("btnOpenSettings").style.display = "none";
+
 }
 
 function fecharSettings(){
-    const popup = document.getElementById("popupSettings");
-    popup.classList.remove("open");
-    document.body.classList.remove("sidebar-open");
-    document.getElementById("btnOpenSettings").style.display = "inline-flex";
+
+  const popup = document.getElementById("popupSettings");
+  popup.classList.remove("open");
+  document.body.classList.remove("sidebar-open");
+  document.getElementById("btnOpenSettings").style.display = "inline-flex";
+
 }
 
 async function carregarNoticia() {
@@ -39,18 +43,27 @@ async function carregarNoticia() {
   const noticia = await res.json();
 
   document.getElementById("titulo").textContent =
-    noticia.titulo;
+    noticia.titulo
 
   document.getElementById("data_publicacao").textContent =
-    noticia.data_publicacao;
+    new Date(
+      noticia.data_publicacao
+    ).toLocaleDateString(
+      "pt-BR",
+      {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    )
 
   document.getElementById("conteudo").textContent =
-    noticia.conteudo;
+    noticia.conteudo
 
   document.getElementById("imagem").src =
-    `/uploads/${noticia.imagem}`;
+    `/uploads/${noticia.imagem}`
 
-  document.title = noticia.titulo;
+  document.title = noticia.titulo
 
 }
 
@@ -75,7 +88,7 @@ async function lastNews() {
 
     container.innerHTML = "";
 
-    outrasNoticias.slice(0, 4).forEach(noticia => {
+    outrasNoticias.slice(0, 6).forEach(noticia => {
 
         const card = document.createElement("div");
 
