@@ -47,6 +47,10 @@ async function carregarNoticias() {
 
         card.className = 'cardNoticia';
 
+        card.addEventListener("click", () => {
+              window.location.href = `/noticias/${noticia.id}`;
+            });
+
         card.innerHTML = `
             <img
                 src="/uploads/${noticia.imagem}"

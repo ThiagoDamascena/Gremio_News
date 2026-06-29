@@ -1,0 +1,424 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body{
+    overflow-x: hidden;
+}
+
+/* Define a fonte padrão da página */
+body{
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+}
+
+
+/* Container principal usando grid */
+.conteiner{
+    display: grid;  
+    min-height: 100vh;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "topo"
+    "main"
+    "rodape"
+    ;
+}
+
+/* Área superior da página */
+.top{
+    display:grid;
+}
+
+/* Caixa central do topo contendo logo e pesquisa */
+.caixaTopo{
+    width: 80%;
+    height: auto;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 4vh 0 3vh 0;
+    flex-wrap: nowrap;
+}
+
+.gridLOGO{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+}
+
+.imgIFPE{
+    width: 35vw;
+    max-width: 100%;
+    height: auto;
+}
+
+.utils{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    width: auto;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.btn-sets{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: none;
+    width: 100%;
+}
+
+.btn-settings{
+    height: 3.3vh;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    margin-right: 1px;
+}
+
+/* Área de pesquisa */
+
+.container-fluid{
+    width: 100%;
+    padding: 0;
+}
+
+.caixaPesquisa{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    gap: 0.75rem;
+}
+
+.navbar .d-flex {
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.navbar .form-control {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+/* Campo de busca */
+.barraPesquisa{
+    border-radius: 5px;
+    height: clamp(20px, 3vh, 4.5vh);
+    width: clamp(100px, 20vw, 300px);
+    padding: 10px;
+    margin: 0;
+}
+
+/* Personalização do botão Bootstrap */
+.btn-outline-success{
+    text-align: center;
+    padding: 0;
+    min-width: 70px;
+    background-color: white;
+    color: green;
+}
+
+/* Remove fundo padrão do Bootstrap */
+.bg-body-tertiary{
+    background-color: transparent!important;
+}
+
+.redirect{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.imgINSTA{
+    height: 3.3vh;
+    width: auto;
+    margin-right: 2px;
+}
+
+.popupSettings {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 30vw;
+  max-width: 420px;
+  min-width: 300px;
+  height: 100vh;
+
+  z-index: 999;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 1s ease, opacity 0.3s ease;
+}
+
+.popupSettings.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.conteudoPopupSettings {
+  background: rgb(15, 25, 45);
+
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  color: white;
+
+  text-align: center;
+
+  overflow-y: auto;
+}
+
+body.sidebar-open {
+  overflow-x: hidden;
+}
+
+body.sidebar-open .conteiner {
+  margin-right: min(30vw, 420px);
+  transition: margin-right 0.3s ease;
+}
+
+.barra{
+    color: transparent;
+    background-color: #078527;
+    width: 100%;
+    height: 2vh;
+}
+
+/* Main */
+
+.main{
+    display: grid;
+    justify-self: center;
+    width: 80%;
+
+    grid-template-areas: 
+    "tituloNot lastNews"
+    "card lastNews"
+    ;
+}
+
+.tituloNot{
+    display: grid;
+    margin: 3.3vh 0 3.3vh 0;
+}
+
+.tituloNot h1{
+    text-align: center;
+}
+
+.card{
+    display: grid;
+    grid-area: card;
+    justify-self: center;
+
+    width: 80%;
+    height: auto;
+}
+
+.lastNews{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3.3vh;
+}
+
+.lastNewsCard{
+    cursor: pointer;
+}
+
+.lastNewsImg{
+    width: 50%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.lastNewsTitulo{
+    margin-top: .5rem;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* Rodapé */
+.rodape{
+    grid-area: rodape;
+    display: grid;
+    background-color: rgb(29, 29, 29);
+    margin-top: 5vh;
+    
+}
+
+.containerRodape{
+    width: 80%;
+    height: auto;
+    overflow-y: hidden;
+
+    color: white;
+
+    justify-self: center;
+
+    font-family: "Rationale", sans-serif;
+}
+
+.margemTopo{
+    margin-top: 5vh;
+}
+
+.margemTopofaq{
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+.accordion-item{
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.accordion-button{
+    background-color: rgb(29, 29, 29);
+    color: white;
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #0056b3;
+    color: white;
+}
+
+.linhaHorizontalRodape{
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    
+    background-color: rgb(193, 193, 193);
+    color: transparent;
+    
+    height: 0.15vh;
+    width: 100%;
+
+    border-radius: 1vh;
+}
+
+.fimRodape{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "copyright botaoSubir"
+    ;
+}
+
+.copy{
+    grid-area: copyright;
+}
+
+.btn-subir{
+    grid-area: botaoSubir;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+    background-color: transparent;
+    width: fit-content;
+    justify-self: end;
+}
+
+.btn-subir:hover {
+  background-color: rgba(255, 255, 255, 0.167);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 550px) {
+    .fimRodape{
+        grid-template-areas:
+        "copyright"
+        "botaoSubir"
+        ;
+    }
+}   
+
+.margem{
+    margin-top: 2vh;
+    color: rgb(29, 29, 29);
+}
+
+/* Responsividade para telas médias */
+@media (max-width: 900px) {
+    .caixaTopo {
+        width: 80%;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .caixaTopo {
+        width: 80%;
+        margin: 2vh 0 2vh 0;
+        gap: 0.5rem;
+    }
+
+    .utils {
+        gap: 0.5rem;
+    }
+
+    .navbar .d-flex {
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    .navbar .form-control {
+        flex: 1 1 120px;
+    }
+
+    .containerRodape {
+        width: 80%;
+    }
+
+    .fimRodape {
+        grid-template-areas:
+        "copyright"
+        "botaoSubir"
+        ;
+        gap: 0.75rem;
+    }
+
+    .btn-subir {
+        justify-self: start;
+    }
+
+    .maisnoticias {
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .caixaLinha {
+        width: 80%;
+    }
+}

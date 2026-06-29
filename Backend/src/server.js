@@ -265,6 +265,22 @@ app.get("/noticias", async (req, res) => {
     }
 });
 
+app.get("/noticias/:id", (req, res) => {
+    res.sendFile(path.join(FRONTEND, "/pages/news/noticia/index_noticia.html"));
+});
+
+app.get("/api/noticias/:id", async (req, res) => {
+
+    const id = req.params.id;
+
+    const [noticia] = await db.query(
+        "SELECT * FROM noticias WHERE id = ?",
+        [id]
+    );
+
+    res.json(noticia[0]);
+});
+
 app.listen(3000, () => {
     console.log("Servidor rodando")
 })
