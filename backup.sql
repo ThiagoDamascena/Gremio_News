@@ -1,9 +1,9 @@
 /*M!999999\- enable the sandbox mode */ 
--- MariaDB dump 10.19-12.2.2-MariaDB, for Linux (x86_64)
+-- MariaDB dump 10.19-12.3.2-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: gremio_estudantil
 -- ------------------------------------------------------
--- Server version	12.2.2-MariaDB
+-- Server version	12.3.2-MariaDB-ubu2404
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -206,7 +206,7 @@ CREATE TABLE `noticias` (
   PRIMARY KEY (`id`),
   KEY `idx_noticias_admin` (`admin_id`),
   CONSTRAINT `fk_noticias_admin` FOREIGN KEY (`admin_id`) REFERENCES `administrador` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,13 +217,10 @@ SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `noticias` WRITE;
 /*!40000 ALTER TABLE `noticias` DISABLE KEYS */;
 INSERT INTO `noticias` VALUES
-(1,'fgdfg','dsfgsdg','2026-06-09 08:35:35',1,'2026-06-09 08:35:35',NULL,'1781004935167.jpg'),
-(2,'Novas vagas','confira','2026-06-09 08:36:13',1,'2026-06-09 08:36:13',NULL,'1781004973131.jpg'),
-(3,'hfghfgh','fghfgh','2026-06-10 07:28:41',1,'2026-06-10 07:28:41',NULL,'1781087321359.jpg'),
-(4,'teste','testando','2026-06-10 07:29:18',1,'2026-06-10 07:29:18',NULL,'1781087358454.jpg'),
-(5,'dfgsdfgsdfg','sdfgsdfgfdg','2026-06-10 08:14:38',1,'2026-06-10 08:14:38',NULL,'1781090078292.jpg'),
-(6,'dfgsdfgsdfg','sdfgsdfgfdg','2026-06-10 08:15:04',1,'2026-06-10 08:15:04',NULL,'1781090104905.jpg'),
-(7,'dfgsdfgsdfg','sdfgsdfgfdg','2026-06-10 08:34:42',1,'2026-06-10 08:34:42',NULL,'1781091282779.jpg');
+(0,'Reunião de Representações','Durante o Game Festival no Campus Olinda, o Grêmio E.V.A. junto aos representantes estudantis dos campi Recife, Olinda e Abreu e Lima se reuniram para trocar experiências e fortalecer a atuação do movimento estudantil.','2026-05-30 00:29:03',2,'2026-06-28 00:29:03','2026-06-28 03:30:12','1782606543886.jpg'),
+(1,'Grêmio E.V.A. e NEGED promovem Cinebate nesta quinta-feira, 18 de junho!','Nesta quinta-feira, o Grêmio E.V.A. junto ao NEGED promoveram um evento para discutir sobre a lgbtfobia nas escolas!','2026-06-28 00:57:13',2,'2026-06-28 00:57:13','2026-06-28 03:28:15','1782608233013.jpg'),
+(2,'Projeto Dignidade Menstrual','O Projeto Dignidade Menstrual está realizando a distribuição de absorventes na SAT. Procure o local e retire o seu quando precisar.\r\n\r\nCuidar da saúde menstrual também é garantir dignidade, respeito e inclusão para todas. ✨','2026-06-28 00:58:44',2,'2026-06-28 00:58:44','2026-06-28 03:08:25','1782608324123.jpg'),
+(3,'Mudanças acadêmicas, devido ao jogo do Brasil, nesta Segunda-Feira, 29 de junho!','Nesta segunda-feira, 29 de junho, devido ao jogo do Brasil as aulas terão duração de 35 minutos cada, com término do dia letivo as 11h30!','2026-06-28 02:59:40',2,'2026-06-28 02:59:40','2026-06-28 03:10:45','1782615580197.jpg');
 /*!40000 ALTER TABLE `noticias` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -238,4 +235,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-06-22 11:50:03
+-- Dump completed on 2026-06-29 23:53:14
