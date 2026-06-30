@@ -33,6 +33,11 @@ A página de Admin é onde eles poderão gerenciar os conteúdos do site.
 Para enviar suas sugestões e reclamações contate-nos por meio do email:  
 evagremioestudantil@gmail.com
 
+## Dependências:
+Node
+npm
+Docker
+
 ## Como ligar o Server?
 Para iniciar o servidor coloque o seguinte comando no terminal para iniciar o servirdor docker:
 docker-compose up -build
