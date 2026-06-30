@@ -14,6 +14,7 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: ["CMD", "mariadb-admin", "ping", "-h", "localhost", "-uroot", "-p190326"]
       interval: 5s
